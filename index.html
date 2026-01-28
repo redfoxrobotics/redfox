@@ -1,254 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redfox Robotics Pvt. Ltd.</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <title>Redfoxrobotics pvt. ltd | Future of Assistive Tech</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
   <style>
-    * {
-      scroll-behavior: smooth;
+    :root {
+      --primary-red: #d32f2f;
+      --primary-yellow: #fcd900;
+      --dark-bg: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-main: #ffffff;
+      --text-muted: #e0e0e0;
     }
+
     body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-    header {
-      background-color: #fcd900;
-      color: #000;
-      animation: fadeInDown 1s ease-out;
-    }
-    header img {
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-    }
-    h1, h2, h3 {
       font-weight: 700;
     }
-    section {
-      padding: 60px 0;
-      animation: fadeInUp 1s ease-out;
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(30px);}
-      100% {opacity: 1; transform: translateY(0);}
+
+    .fade-in-up {
+      animation: fadeIn 0.8s ease-out forwards;
     }
-    @keyframes fadeInDown {
-      0% {opacity: 0; transform: translateY(-30px);}
-      100% {opacity: 1; transform: translateY(0);}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
     }
-    .product-card {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 12px;
-      transition: transform 0.3s, box-shadow 0.3s;
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      border-radius: 50%;
     }
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+
+    .navbar-brand span {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-left: 10px;
     }
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
+
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .team-member img {
-      width: 100px;
-      height: 100px;
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-yellow) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, #fff, #b3b3b3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+
+    .text-highlight {
+      color: var(--primary-yellow);
+    }
+
+    /* Override Bootstrap text-muted */
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    .hero-img {
+      width: 350px;
+      height: 350px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #fcd900;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      border: 4px solid var(--primary-yellow);
+      /* Added border to define the circle better */
+    }
+
+    .hero-img:hover {
+      transform: none;
+      /* Removed movement/tilt */
+    }
+
+    /* Cards */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-red);
+      box-shadow: 0 10px 30px rgba(211, 47, 47, 0.2);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      /* Changed to contain to show full product */
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 4rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary-red);
+      border-radius: 2px;
+    }
+
+    /* Neuropress Feature */
+    .feature-showcase {
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .success-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Team */
+    .team-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--primary-yellow);
+      margin-bottom: 1.5rem;
       transition: transform 0.3s;
     }
-    .team-member img:hover {
-      transform: scale(1.1);
+
+    .team-img:hover {
+      transform: rotate(5deg) scale(1.1);
     }
+
+    /* Contact & Footer */
+    .form-control {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #fff !important;
+      border-radius: 10px;
+      padding: 0.8rem 1.2rem;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: var(--primary-yellow) !important;
+      color: #fff !important;
+      box-shadow: none;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-header {
+        font-size: 2rem;
+      }
+    }
+
+    .btn-brand {
+      background-color: var(--primary-red);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+    }
+
+    .btn-brand:hover {
+      background-color: #b71c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
       right: 30px;
       z-index: 1000;
+      transition: transform 0.3s;
     }
-    .whatsapp-float img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
     }
+
     footer {
-      background-color: #111;
-      padding: 20px 0;
-    }
-    a {
-      color: #fcd900;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 5rem;
+      padding: 2rem 0;
+      background: #050505;
     }
   </style>
 </head>
+
 <body>
 
-<header class="py-4">
-  <div class="container d-flex align-items-center justify-content-between">
-    <img src="1.png" alt="Redfox Logo">
-    <div class="text-center">
-      <h1 class="mb-1">REDFOX ROBOTICS PRIVATE LIMITED</h1>
-      <p class="mb-0">Innovating the Future with Assistive & Intelligent Technologies</p>
-    </div>
-  </div>
-</header>
-
-<section class="bg-dark">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <img src="2.png" class="img-fluid rounded" alt="About Redfox">
-      </div>
-      <div class="col-md-6">
-        <h2>🚀 Who We Are</h2>
-        <p>Redfox Robotics Pvt. Ltd. is a leading AI & robotics startup incubated at Government Engineering College, Barton Hill, Trivandrum. We specialize in developing assistive tech solutions across healthcare, education, and sustainability domains.</p>
-        <h2 class="mt-4">🎯 Our Vision</h2>
-        <p>To revolutionize human life by democratizing access to intelligent technologies that improve quality of living across the globe.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-black text-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Our Products</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="product-card text-center">
-          <img src="3.png" alt="Gestalk">
-          <h3 class="mt-3">Gestalk</h3>
-          <p>Smart gesture-based assistive device for communication.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-card text-center">
-          <img src="4.png" alt="Poopy">
-          <h3 class="mt-3">Poopy - Semi-Humanoid Robot</h3>
-          <p>Interactive AI semi-humanoid robot for special education and learning.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-card text-center">
-          <img src="5.png" alt="BartonBin">
-          <h3 class="mt-3">BartonBin</h3>
-          <p>Smart AI bin for efficient waste segregation.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-light text-dark">
-  <div class="container">
-    <h2 class="text-center mb-5">Product Features</h2>
-    <div class="row g-5">
-      <div class="col-md-4">
-        <h4>✋ Gestalk</h4>
-        <ul>
-          <li>Real-time gesture recognition</li>
-          <li>Multi-language & audio output</li>
-          <li>Bluetooth/WiFi connectivity</li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h4>🤖 Poopy – Semi-Humanoid Robot</h4>
-        <ul>
-          <li>Child-friendly semi-humanoid design</li>
-          <li>Emotion recognition & adaptive learning</li>
-          <li>Interactive education tools</li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h4>🗑️ BartonBin</h4>
-        <ul>
-          <li>AI-powered image processing</li>
-          <li>Automatic motorized sorting</li>
-          <li>Energy-efficient and smart</li>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="1.png" alt="Redfox Logo">
+        <span>Redfoxrobotics pvt. ltd</span>
+      </a>
+      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#success">Success Stories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="bg-dark text-light">
-  <div class="container text-center">
-    <h2>Meet Our Leaders</h2>
-    <div class="row justify-content-center g-4 mt-4">
-      <div class="col-md-3">
-        <div class="team-member">
-          <img src="3.png" alt="Vimun A">
-          <h5 class="mt-2">Vimun A</h5>
-          <p>CEO & Founder</p>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 fade-in-up">
+          <h1 class="hero-title">Innovating the <span class="text-highlight">Future</span></h1>
+          <p class="lead text-muted mb-4">
+            We specialize in developing AI & robotics solutions for healthcare, education, and sustainability.
+            Incubated at GEC Barton Hill, Trivandrum.
+          </p>
+          <a href="#products" class="btn btn-brand">Explore Solutions</a>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="team-member">
-          <img src="66.png" alt="Jinso Raj">
-          <h5 class="mt-2">Jinso Raj</h5>
-          <p>COO</p>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="team-member">
-          <img src="55.png" alt="Afnan">
-          <h5 class="mt-2">Afnan</h5>
-          <p>CTO</p>
+        <div class="col-lg-6 mt-5 mt-lg-0 text-center fade-in-up" style="animation-delay: 0.2s;">
+          <img src="1.png" class="img-fluid hero-img" alt="Redfoxrobotics pvt. ltd Logo">
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="bg-light text-dark">
-  <div class="container">
-    <h2 class="text-center mb-5">Contact Us</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <form onsubmit="sendWhatsApp(); return false;">
-          <input type="text" id="name" class="form-control mb-3" placeholder="Your Name" required>
-          <input type="email" id="email" class="form-control mb-3" placeholder="Your Email" required>
-          <input type="tel" id="phone" class="form-control mb-3" placeholder="Your Phone Number" required>
-          <textarea id="enquiry" class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
-          <button class="btn btn-dark w-100">Submit via WhatsApp</button>
-        </form>
+  <!-- Products Section -->
+  <section id="products" class="py-5">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-header">Our Innovations</h2>
       </div>
-      <div class="col-md-6">
-        <h4>REDFOX ROBOTICS PRIVATE LIMITED</h4>
-        <p>TBI – Government Engineering College Bartonhill, Trivandrum, Kerala</p>
-        <p>Email: <a href="mailto:StartUp.mailr.obotics@gmail.com">StartUp.mailrobotics@gmail.com</a></p>
-        <p>Phone: <a href="tel:+916282157697">+91 62821 57697</a></p>
+
+      <div class="row g-4">
+        <!-- Neuropress -->
+        <div class="col-md-6 col-lg-3 fade-in-up">
+          <div class="glass-card">
+            <img src="6.png" class="product-img" alt="Neuropress">
+            <h4 class="mb-3 text-highlight">Neuropress</h4>
+            <p class="text-muted small">Smart Neuro Rehabilitation Device. A non-invasive solution designed to aid
+              recovery.</p>
+            <span class="badge bg-danger">New Product</span>
+          </div>
+        </div>
+
+        <!-- Gestalk -->
+        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.1s;">
+          <div class="glass-card">
+            <img src="3.png" class="product-img" alt="Gestalk">
+            <h4 class="mb-3 text-highlight">Gestalk</h4>
+            <p class="text-muted small">Smart gesture-based assistive device enabling voiceless communication through
+              technology.</p>
+          </div>
+        </div>
+
+        <!-- Poopy -->
+        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.2s;">
+          <div class="glass-card">
+            <img src="4.png" class="product-img" alt="Poopy Robot">
+            <h4 class="mb-3 text-highlight">Poopy</h4>
+            <p class="text-muted small">Interactive AI semi-humanoid robot tailored for special education and
+              engagement.</p>
+          </div>
+        </div>
+
+        <!-- BartonBin -->
+        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.3s;">
+          <div class="glass-card">
+            <img src="5.png" class="product-img" alt="BartonBin">
+            <h4 class="mb-3 text-highlight">BartonBin</h4>
+            <p class="text-muted small">AI-powered smart bin for efficient, automated waste segregation and management.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="text-center">
-  <p>&copy; 2025 RedfoxRobotics Pvt. Ltd. | All rights reserved.</p>
-</footer>
+  <!-- Features List -->
+  <section class="py-5 bg-black">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-3"><i class="bi bi-activity text-danger me-2"></i>Neuropress</h5>
+          <ul class="list-unstyled text-muted">
+            <li><i class="bi bi-check2 small me-2"></i>Neuro Rehabilitation</li>
+            <li><i class="bi bi-check2 small me-2"></i>Smart Feedback</li>
+            <li><i class="bi bi-check2 small me-2"></i>Compact Design</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-3"><i class="bi bi-hand-index-thumb text-warning me-2"></i>Gestalk</h5>
+          <ul class="list-unstyled text-muted">
+            <li><i class="bi bi-check2 small me-2"></i>Gesture Recognition</li>
+            <li><i class="bi bi-check2 small me-2"></i>Multi-language Support</li>
+            <li><i class="bi bi-check2 small me-2"></i>Wireless Connectivity</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-3"><i class="bi bi-robot text-primary me-2"></i>Poopy</h5>
+          <ul class="list-unstyled text-muted">
+            <li><i class="bi bi-check2 small me-2"></i>Emotion Recognition</li>
+            <li><i class="bi bi-check2 small me-2"></i>Adaptive Learning</li>
+            <li><i class="bi bi-check2 small me-2"></i>Kid-friendly Design</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <h5 class="text-white mb-3"><i class="bi bi-recycle text-success me-2"></i>BartonBin</h5>
+          <ul class="list-unstyled text-muted">
+            <li><i class="bi bi-check2 small me-2"></i>AI Image Processing</li>
+            <li><i class="bi bi-check2 small me-2"></i>Auto Sorting</li>
+            <li><i class="bi bi-check2 small me-2"></i>Energy Efficient</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<a href="https://wa.me/916282157697" class="whatsapp-float" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-</a>
+  <!-- Success Story / Delivery Section -->
+  <section id="success" class="py-5">
+    <div class="container">
+      <div class="feature-showcase p-4 p-md-5 fade-in-up">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="7.png" class="success-img" alt="Neuropress Delivery Event">
+          </div>
+          <div class="col-lg-6 ps-lg-5">
+            <h3 class="mb-4">Successful Deployment</h3>
+            <h4 class="text-highlight mb-3">Neuropress Delivery</h4>
+            <p class="text-muted">
+              We are proud to announce the successful delivery and integration of our <strong>Neuropress</strong>
+              product.
+              This marks a significant milestone in our mission to bring accessible neuro-rehabilitation technology to
+              those in need.
+            </p>
+            <p class="text-muted">
+              Approved by leading experts, Neuropress represents the pinnacle of our R&D efforts in healthcare robotics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  function sendWhatsApp() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var enquiry = document.getElementById("enquiry").value;
-    var message = `*New Website Enquiry*%0A👤 *Name:* ${name}%0A📧 *Email:* ${email}%0A📱 *Phone:* ${phone}%0A📝 *Enquiry:* ${enquiry}`;
-    var url = `https://wa.me/916282157697?text=${message}`;
-    window.open(url, '_blank');
-  }
-</script>
+  <!-- Team Section -->
+  <section id="team" class="py-5">
+    <div class="container text-center">
+      <h2 class="section-header">Leadership</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4 fade-in-up">
+          <div class="team-member">
+            <img src="2.png" class="team-img" alt="Vimun A">
+            <h4 class="mt-3">Vimun A</h4>
+            <p class="text-primary-yellow">CEO & Founder</p>
+            <p class="text-muted small px-3">Leading the vision to democratize intelligent technologies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="glass-card p-4 p-md-5">
+            <h2 class="text-center mb-4">Get in Touch</h2>
+            <form onsubmit="sendWhatsApp(); return false;">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required>
+                </div>
+                <div class="col-12">
+                  <input type="email" id="email" class="form-control" placeholder="Email Address" required>
+                </div>
+                <div class="col-12">
+                  <textarea id="enquiry" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="col-12 text-center mt-4">
+                  <button class="btn btn-brand w-100">Send via WhatsApp <i class="bi bi-whatsapp ms-2"></i></button>
+                </div>
+              </div>
+            </form>
+
+            <div class="text-center mt-5 pt-4 border-top border-secondary">
+              <p><strong>Redfoxrobotics pvt. ltd</strong></p>
+              <p class="text-muted small">TBI – Government Engineering College Bartonhill, Trivandrum, Kerala</p>
+              <div class="d-flex justify-content-center gap-4 mt-3">
+                <a href="mailto:StartUp.mailrobotics@gmail.com" class="text-white"><i
+                    class="bi bi-envelope-fill me-2"></i>Email Us</a>
+                <a href="tel:+916282157697" class="text-white"><i class="bi bi-telephone-fill me-2"></i>+91 62821
+                  57697</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0 text-muted">&copy; 2026 Redfoxrobotics pvt. ltd | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/916282157697" class="whatsapp-float" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"
+      style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function sendWhatsApp() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var phone = document.getElementById("phone").value;
+      var enquiry = document.getElementById("enquiry").value;
+
+      var message = `*Website Enquiry*%0A---------------------------%0A👤 *Name:* ${name}%0A📧 *Email:* ${email}%0A📱 *Phone:* ${phone}%0A📝 *Message:* ${enquiry}`;
+
+      var url = `https://wa.me/916282157697?text=${message}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
+
 </html>
