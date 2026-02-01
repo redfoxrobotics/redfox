@@ -330,6 +330,27 @@
       padding: 2rem 0;
       background: #050505;
     }
+
+
+
+    .team-member {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .team-member:hover .team-img {
+      border-color: var(--primary-red);
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .hover-effect {
+      margin: 0 5px;
+      transition: color 0.3s;
+    }
+
+    .hover-effect:hover {
+      color: var(--primary-yellow) !important;
+    }
   </style>
 </head>
 
@@ -502,10 +523,22 @@
       <div class="row justify-content-center">
         <div class="col-md-4 fade-in-up">
           <div class="team-member">
-            <img src="2.png" class="team-img" alt="Vimun A">
-            <h4 class="mt-3">Vimun A</h4>
-            <p class="text-primary-yellow">CEO & Founder</p>
-            <p class="text-muted small px-3">Leading the vision to democratize intelligent technologies.</p>
+            <a href="portfolio.html" class="text-decoration-none">
+              <img src="2.png" class="team-img" alt="Vimun A" title="Click to view Portfolio">
+              <h4 class="mt-3 text-white">Vimun A</h4>
+            </a>
+            <p class="text-primary-yellow mb-1">CEO & Founder</p>
+            <p class="text-muted small px-3 mb-3">Leading the vision to democratize intelligent technologies.</p>
+
+            <!-- Social Links -->
+            <div class="d-flex justify-content-center gap-3">
+              <a href="https://www.linkedin.com/in/vimun-a-3771b41b4/" target="_blank"
+                class="text-secondary hover-effect"><i class="bi bi-linkedin fs-5"></i></a>
+              <a href="https://www.instagram.com/vimun_official/" target="_blank" class="text-secondary hover-effect"><i
+                  class="bi bi-instagram fs-5"></i></a>
+              <a href="https://wa.me/916282157697" target="_blank" class="text-secondary hover-effect"><i
+                  class="bi bi-whatsapp fs-5"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -548,11 +581,12 @@
                 <a href="tel:+916282157697" class="text-white"><i class="bi bi-telephone-fill me-2"></i>+91 62821
                   57697</a>
               </div>
+
+
             </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- Footer -->
@@ -561,6 +595,8 @@
       <p class="mb-0 text-muted">&copy; 2026 Redfoxrobotics pvt. ltd | All rights reserved.</p>
     </div>
   </footer>
+
+
 
   <!-- WhatsApp Float -->
   <a href="https://wa.me/916282157697" class="whatsapp-float" target="_blank">
