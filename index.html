@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redfoxrobotics pvt. ltd | Future of Assistive Tech</title>
+  <title>Redfoxrobotics Pvt. Ltd | Gestalk & NeuroPress — Assistive Tech</title>
+  <meta name="description"
+    content="Redfoxrobotics builds AI assistive technology. Gestalk — AI smart glove that translates Indian Sign Language to voice, text & images. NeuroPress — smart neuro-rehabilitation device.">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous">
@@ -12,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -21,10 +23,15 @@
     :root {
       --primary-red: #d32f2f;
       --primary-yellow: #fcd900;
-      --dark-bg: #0a0a0a;
+      --gestalk-teal: #16a89a;
+      --dark-bg: #070708;
       --card-bg: rgba(255, 255, 255, 0.05);
       --text-main: #ffffff;
-      --text-muted: #e0e0e0;
+      --text-muted: #cfcfcf;
+    }
+
+    * {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -34,49 +41,70 @@
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
+    h1, h2, h3, h4, h5 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Animated background glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(211, 47, 47, 0.18), transparent 65%);
+      z-index: -2;
+      animation: floatGlow 14s ease-in-out infinite alternate;
     }
 
-    .fade-in-up {
-      animation: fadeIn 0.8s ease-out forwards;
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -25%;
+      right: -15%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(22, 168, 154, 0.14), transparent 65%);
+      z-index: -2;
+      animation: floatGlow 18s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(6%, 8%) scale(1.15); }
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Navbar */
     .navbar {
-      background: rgba(10, 10, 10, 0.8);
+      background: rgba(7, 7, 8, 0.75);
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.9rem 0;
     }
 
     .navbar-brand img {
-      height: 50px;
+      height: 46px;
       width: auto;
       border-radius: 50%;
     }
 
     .navbar-brand span {
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       color: var(--text-main);
       margin-left: 10px;
     }
@@ -92,77 +120,115 @@
       color: var(--primary-yellow) !important;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero-section {
-      padding: 100px 0;
+      padding: 90px 0 70px;
       position: relative;
-      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 168, 154, 0.12);
+      border: 1px solid rgba(22, 168, 154, 0.35);
+      color: #6fe6d8;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.4rem;
     }
 
     .hero-title {
-      font-size: 3.5rem;
+      font-size: 3.6rem;
+      line-height: 1.1;
       background: linear-gradient(45deg, #fff, #b3b3b3);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
-    .text-highlight {
-      color: var(--primary-yellow);
-    }
-
-    /* Override Bootstrap text-muted */
-    .text-muted {
-      color: var(--text-muted) !important;
-    }
+    .text-highlight { color: var(--primary-yellow); }
+    .text-teal { color: var(--gestalk-teal); }
+    .text-muted { color: var(--text-muted) !important; }
 
     .hero-img {
-      width: 350px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      border: 4px solid var(--primary-yellow);
-      /* Added border to define the circle better */
-    }
-
-    .hero-img:hover {
-      transform: none;
-      /* Removed movement/tilt */
-    }
-
-    /* Cards */
-    .glass-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-
-    .glass-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary-red);
-      box-shadow: 0 10px 30px rgba(211, 47, 47, 0.2);
-    }
-
-    .product-img {
       width: 100%;
-      height: 250px;
-      object-fit: contain;
-      /* Changed to contain to show full product */
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px;
+      max-width: 480px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(22, 168, 154, 0.35);
+      animation: floatY 5s ease-in-out infinite;
     }
 
-    /* Section Headers */
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .stat-row { gap: 2.5rem; }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--primary-yellow);
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Buttons */
+    .btn-brand {
+      background-color: var(--primary-red);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+    }
+
+    .btn-brand:hover {
+      background-color: #b71c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(211, 47, 47, 0.45);
+      color: #fff;
+    }
+
+    .btn-teal {
+      background-color: var(--gestalk-teal);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+    }
+
+    .btn-teal:hover {
+      background-color: #12897e;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(22, 168, 154, 0.45);
+      color: #fff;
+    }
+
+    .btn-outline-light-soft {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-outline-light-soft:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* Section headers */
     .section-header {
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
       position: relative;
       display: inline-block;
     }
@@ -179,35 +245,471 @@
       border-radius: 2px;
     }
 
-    /* Neuropress Feature */
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-red);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Product cards */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary-red);
+      box-shadow: 0 15px 40px rgba(211, 47, 47, 0.2);
+    }
+
+    .product-media {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 1.5rem;
+    }
+
+    .chip {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin: 0 6px 8px 0;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+    }
+
+    /* ===== GESTALK SHOWCASE ===== */
+    .gestalk-section {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(22, 168, 154, 0.10), transparent 45%),
+        linear-gradient(180deg, rgba(10, 20, 20, 0.4), rgba(7, 7, 8, 0.7));
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Product render (reduced, centered, with scan animation) */
+    .render-showcase {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .render-media {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(22, 168, 154, 0.3);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .render-img {
+      width: 100%;
+      display: block;
+    }
+
+    .render-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 1.1rem;
+    }
+
+    .glove-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glove-img {
+      width: 100%;
+      max-width: 430px;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+
+    .glove-ring {
+      position: absolute;
+      inset: -14px;
+      border: 2px dashed rgba(22, 168, 154, 0.5);
+      border-radius: 26px;
+      animation: spinRing 22s linear infinite;
+    }
+
+    @keyframes spinRing {
+      to { transform: rotate(360deg); }
+    }
+
+    /* scanning line over the glove */
+    .scan-line {
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      height: 3px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, transparent, var(--gestalk-teal), transparent);
+      box-shadow: 0 0 14px 2px rgba(22, 168, 154, 0.8);
+      z-index: 2;
+      animation: scanMove 3.2s ease-in-out infinite;
+    }
+
+    @keyframes scanMove {
+      0%, 100% { top: 8%; opacity: 0.2; }
+      50% { top: 88%; opacity: 1; }
+    }
+
+    /* Flow pipeline */
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 14px;
+      transition: all 0.3s;
+    }
+
+    .flow-step:hover {
+      border-color: var(--gestalk-teal);
+      transform: translateX(6px);
+    }
+
+    .flow-icon {
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      font-size: 1.4rem;
+      background: rgba(22, 168, 154, 0.15);
+      color: #6fe6d8;
+    }
+
+    /* ===== PHONE / APP MOCKUP ===== */
+    .phone {
+      width: 300px;
+      height: 610px;
+      margin: 0 auto;
+      background: #0d0f10;
+      border-radius: 42px;
+      border: 10px solid #1c1f22;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 0 2px rgba(22, 168, 154, 0.25);
+      position: relative;
+      overflow: hidden;
+      animation: floatY 6s ease-in-out infinite;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 24px;
+      background: #1c1f22;
+      border-radius: 0 0 16px 16px;
+      z-index: 5;
+    }
+
+    .app-screen {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #0f2a28, #0a1616 40%, #0d0f10);
+      display: flex;
+      flex-direction: column;
+      padding: 34px 16px 16px;
+    }
+
+    .app-statusbar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: #8fb8b3;
+      padding: 0 6px 10px;
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .app-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--gestalk-teal), #0d6b62);
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(22, 168, 154, 0.4);
+    }
+
+    .app-title { font-weight: 700; font-size: 1rem; line-height: 1; }
+    .app-sub { font-size: 0.66rem; color: #7fb3ac; }
+
+    /* mode tabs */
+    .app-modes {
+      display: flex;
+      gap: 6px;
+      margin: 14px 0;
+    }
+
+    .app-mode {
+      flex: 1;
+      text-align: center;
+      font-size: 0.6rem;
+      padding: 7px 4px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #9fc7c1;
+      transition: all 0.4s;
+      font-weight: 600;
+    }
+
+    .app-mode.active {
+      background: var(--gestalk-teal);
+      color: #fff;
+    }
+
+    /* input card: the sign being read */
+    .sign-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(22, 168, 154, 0.25);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sign-card .label {
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7fb3ac;
+    }
+
+    .sign-hand {
+      font-size: 3.6rem;
+      margin: 6px 0;
+      display: block;
+      animation: signPulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes signPulse {
+      0%, 100% { transform: scale(1) rotate(-3deg); }
+      50% { transform: scale(1.12) rotate(3deg); }
+    }
+
+    .sign-dots {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .sign-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gestalk-teal);
+      animation: blink 1.2s infinite;
+    }
+    .sign-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .sign-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 1; }
+    }
+
+    /* output card: translation */
+    .out-card {
+      margin-top: 14px;
+      background: linear-gradient(135deg, rgba(22, 168, 154, 0.14), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(22, 168, 154, 0.3);
+      border-radius: 18px;
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .out-label {
+      font-size: 0.58rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7fb3ac;
+      margin-bottom: 8px;
+    }
+
+    .out-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      min-height: 40px;
+    }
+
+    .out-text .cursor {
+      display: inline-block;
+      width: 2px;
+      background: var(--gestalk-teal);
+      animation: caret 0.8s steps(1) infinite;
+    }
+
+    @keyframes caret {
+      50% { opacity: 0; }
+    }
+
+    .out-native {
+      font-size: 0.9rem;
+      color: #9fc7c1;
+      margin-top: 2px;
+      min-height: 20px;
+    }
+
+    .speaker {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    .speaker i { color: var(--gestalk-teal); font-size: 1.2rem; }
+
+    .wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 22px;
+      flex: 1;
+    }
+
+    .wave span {
+      flex: 1;
+      background: var(--gestalk-teal);
+      border-radius: 3px;
+      animation: waveMove 1s ease-in-out infinite;
+    }
+    .wave span:nth-child(1){animation-delay:0s}
+    .wave span:nth-child(2){animation-delay:.1s}
+    .wave span:nth-child(3){animation-delay:.2s}
+    .wave span:nth-child(4){animation-delay:.3s}
+    .wave span:nth-child(5){animation-delay:.15s}
+    .wave span:nth-child(6){animation-delay:.25s}
+    .wave span:nth-child(7){animation-delay:.05s}
+    .wave span:nth-child(8){animation-delay:.35s}
+
+    @keyframes waveMove {
+      0%, 100% { height: 20%; }
+      50% { height: 100%; }
+    }
+
+    /* ===== Success stories ===== */
     .feature-showcase {
       background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.95));
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .success-img {
       width: 100%;
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ===== Awards carousel ===== */
+    .awards-viewport {
+      overflow: hidden;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .awards-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: marquee 60s linear infinite;
+    }
+
+    .awards-viewport:hover .awards-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .award-card {
+      width: 240px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #111;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .award-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary-yellow);
+    }
+
+    .award-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
     }
 
     /* Team */
     .team-img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
+      object-fit: cover;
       border: 4px solid var(--primary-yellow);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
       transition: transform 0.3s;
     }
 
-    .team-img:hover {
-      transform: rotate(5deg) scale(1.1);
+    .team-member { cursor: pointer; }
+    .team-member:hover .team-img {
+      border-color: var(--primary-red);
+      transform: rotate(4deg) scale(1.06);
     }
 
-    /* Contact & Footer */
+    .hover-effect { margin: 0 5px; transition: color 0.3s; }
+    .hover-effect:hover { color: var(--primary-yellow) !important; }
+
+    /* Contact/Form */
     .form-control {
       background: rgba(255, 255, 255, 0.05) !important;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -216,100 +718,13 @@
       padding: 0.8rem 1.2rem;
     }
 
-    .form-control::placeholder {
-      color: rgba(255, 255, 255, 0.6) !important;
-    }
+    .form-control::placeholder { color: rgba(255, 255, 255, 0.6) !important; }
 
     .form-control:focus {
       background: rgba(255, 255, 255, 0.1) !important;
       border-color: var(--primary-yellow) !important;
       color: #fff !important;
       box-shadow: none;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 991px) {
-      .hero-section {
-        padding: 60px 0 80px 0;
-        text-align: center;
-      }
-
-      .hero-title {
-        font-size: 3rem;
-      }
-
-      .hero-img {
-        margin-top: 2rem;
-        width: 300px;
-        height: 300px;
-      }
-
-      .navbar-collapse {
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
-        padding: 1.5rem;
-        border-radius: 12px;
-        margin-top: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-      }
-
-      .navbar-nav {
-        align-items: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-img {
-        width: 220px;
-        height: 220px;
-      }
-
-      .hero-title {
-        font-size: 2.2rem;
-      }
-
-      .section-header {
-        font-size: 1.75rem;
-        margin-bottom: 2.5rem;
-      }
-
-      .glass-card {
-        padding: 1.5rem;
-      }
-
-      .feature-showcase {
-        padding: 1.5rem !important;
-      }
-
-      .navbar-brand span {
-        font-size: 1.2rem;
-      }
-
-      .navbar-brand img {
-        height: 40px;
-      }
-
-      .btn-brand {
-        width: 100%;
-        display: block;
-      }
-    }
-
-    .btn-brand {
-      background-color: var(--primary-red);
-      color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-      border: none;
-    }
-
-    .btn-brand:hover {
-      background-color: #b71c1c;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
     }
 
     .whatsapp-float {
@@ -320,36 +735,39 @@
       transition: transform 0.3s;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
+    .whatsapp-float:hover { transform: scale(1.1); }
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 5rem;
+      margin-top: 4rem;
       padding: 2rem 0;
-      background: #050505;
+      background: #040404;
     }
 
-
-
-    .team-member {
-      cursor: pointer;
-      transition: all 0.3s ease;
+    /* Responsive */
+    @media (max-width: 991px) {
+      .hero-section { padding: 60px 0 50px; text-align: center; }
+      .hero-title { font-size: 2.8rem; }
+      .hero-img { margin-top: 2rem; max-width: 380px; }
+      .stat-row { justify-content: center; }
+      .navbar-collapse {
+        background: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-top: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+      }
+      .navbar-nav { align-items: center; }
     }
 
-    .team-member:hover .team-img {
-      border-color: var(--primary-red);
-      transform: rotate(5deg) scale(1.1);
-    }
-
-    .hover-effect {
-      margin: 0 5px;
-      transition: color 0.3s;
-    }
-
-    .hover-effect:hover {
-      color: var(--primary-yellow) !important;
+    @media (max-width: 768px) {
+      .hero-img { max-width: 300px; }
+      .hero-title { font-size: 2.2rem; }
+      .section-header { font-size: 1.7rem; }
+      .glass-card { padding: 1.5rem; }
+      .navbar-brand span { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -359,9 +777,9 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center" href="#home">
         <img src="1.png" alt="Redfox Logo">
-        <span>Redfoxrobotics pvt. ltd</span>
+        <span>Redfoxrobotics</span>
       </a>
       <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -370,7 +788,8 @@
         <ul class="navbar-nav gap-3">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#success">Success Stories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gestalk">Gestalk App</a></li>
+          <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -378,186 +797,335 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section id="home" class="hero-section">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 fade-in-up">
-          <h1 class="hero-title">Innovating the <span class="text-highlight">Future</span></h1>
+        <div class="col-lg-6">
+          <span class="hero-badge"><i class="bi bi-stars"></i> AI-Powered Assistive Technology</span>
+          <h1 class="hero-title">Giving a <span class="text-highlight">Voice</span><br>to Every Hand</h1>
           <p class="lead text-muted mb-4">
-            We specialize in developing AI & robotics solutions for healthcare, education, and sustainability.
-            Incubated at GEC Barton Hill, Trivandrum.
+            At <strong>Redfoxrobotics Pvt. Ltd.</strong> we build intelligent assistive devices that
+            break barriers — translating sign language into speech and restoring movement through smart
+            rehabilitation. Incubated at TBI, GEC Barton Hill, Trivandrum.
           </p>
-          <a href="#products" class="btn btn-brand">Explore Solutions</a>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#gestalk" class="btn btn-teal">Explore Gestalk <i class="bi bi-arrow-right ms-1"></i></a>
+            <a href="#products" class="btn btn-outline-light-soft">Our Products</a>
+          </div>
+          <div class="d-flex stat-row mt-4">
+            <div>
+              <div class="stat-num">55+</div>
+              <div class="stat-label">Awards &amp; Recognitions</div>
+            </div>
+            <div>
+              <div class="stat-num">2</div>
+              <div class="stat-label">Products Delivered</div>
+            </div>
+            <div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Made in India</div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-6 mt-5 mt-lg-0 text-center fade-in-up" style="animation-delay: 0.2s;">
-          <img src="1.png" class="img-fluid hero-img" alt="Redfoxrobotics pvt. ltd Logo">
+        <div class="col-lg-6 text-center">
+          <img src="gestalk-gloves.png" class="img-fluid hero-img" alt="Gestalk AI Smart Gesture Gloves">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
+  <!-- Products -->
   <section id="products" class="py-5">
     <div class="container">
-      <div class="text-center">
-        <h2 class="section-header">Our Innovations</h2>
+      <div class="text-center reveal">
+        <p class="eyebrow">What We Build</p>
+        <h2 class="section-header">Our Products</h2>
       </div>
 
-      <div class="row g-4">
-        <!-- Neuropress -->
-        <div class="col-md-6 col-lg-3 fade-in-up">
-          <div class="glass-card">
-            <img src="6.png" class="product-img" alt="Neuropress">
-            <h4 class="mb-3 text-highlight">Neuropress</h4>
-            <p class="text-muted small">Smart Gaming & Stress Relief Gadget. An interactive device designed for daily
-              exercise and relaxation.</p>
-            <span class="badge bg-danger">New Product</span>
-          </div>
-        </div>
-
+      <div class="row g-4 justify-content-center">
         <!-- Gestalk -->
-        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.1s;">
+        <div class="col-md-6 col-lg-5 reveal">
           <div class="glass-card">
-            <img src="3.png" class="product-img" alt="Gestalk">
-            <h4 class="mb-3 text-highlight">Gestalk</h4>
-            <p class="text-muted small">Smart gesture-based assistive device enabling voiceless communication through
-              technology.</p>
+            <img src="gestalk-gloves.png" class="product-media" alt="Gestalk Smart Gesture Gloves"
+              style="object-fit: contain; background: #2b2b2f; padding: 10px;">
+            <span class="chip" style="border-color: rgba(22,168,154,.4); color:#6fe6d8;">Flagship</span>
+            <h4 class="mb-2 text-teal">Gestalk</h4>
+            <p class="text-muted">AI-powered smart electronic glove that translates <strong>Indian Sign
+                Language</strong> into voice, text and images in real time — with a companion mobile app for
+              two-way communication.</p>
+            <div>
+              <span class="chip">Sign → Speech</span>
+              <span class="chip">Speech → Text</span>
+              <span class="chip">Sign → Image</span>
+              <span class="chip">Mobile App</span>
+            </div>
+            <a href="#gestalk" class="btn btn-teal mt-3">See the App <i class="bi bi-phone ms-1"></i></a>
           </div>
         </div>
 
-        <!-- Poopy -->
-        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.2s;">
+        <!-- NeuroPress -->
+        <div class="col-md-6 col-lg-5 reveal">
           <div class="glass-card">
-            <img src="4.png" class="product-img" alt="Poopy Robot">
-            <h4 class="mb-3 text-highlight">Poopy</h4>
-            <p class="text-muted small">Interactive AI semi-humanoid robot tailored for special education and
-              engagement.</p>
-          </div>
-        </div>
-
-        <!-- BartonBin -->
-        <div class="col-md-6 col-lg-3 fade-in-up" style="animation-delay: 0.3s;">
-          <div class="glass-card">
-            <img src="5.png" class="product-img" alt="BartonBin">
-            <h4 class="mb-3 text-highlight">BartonBin</h4>
-            <p class="text-muted small">AI-powered smart bin for efficient, automated waste segregation and management.
-            </p>
+            <img src="neuropress-device.png" class="product-media" alt="NeuroPress Device"
+              style="object-fit: contain; background: #ffffff; padding: 10px;">
+            <span class="chip" style="border-color: rgba(211,47,47,.4); color:#ff8a80;">Healthcare</span>
+            <h4 class="mb-2 text-highlight">NeuroPress</h4>
+            <p class="text-muted">A smart neuro-rehabilitation device — <em>Squeeze. Play. Recover.</em>
+              It blends gamified therapy with daily exercise to aid recovery, motor skills and stress relief.</p>
+            <div>
+              <span class="chip">Neuro Rehab</span>
+              <span class="chip">Gamified Therapy</span>
+              <span class="chip">Motor Recovery</span>
+              <span class="chip">Stress Relief</span>
+            </div>
+            <a href="#neuropress" class="btn btn-brand mt-3">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features List -->
-  <section class="py-5 bg-black">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-md-6 col-lg-3">
-          <h5 class="text-white mb-3"><i class="bi bi-controller text-danger me-2"></i>Neuropress</h5>
-          <ul class="list-unstyled text-muted">
-            <li><i class="bi bi-check2 small me-2"></i>Interactive Gaming</li>
-            <li><i class="bi bi-check2 small me-2"></i>Stress Relief</li>
-            <li><i class="bi bi-check2 small me-2"></i>Daily Fitness</li>
-          </ul>
+  <!-- ===== GESTALK SHOWCASE + APP INTERFACE ===== -->
+  <section id="gestalk" class="gestalk-section py-5">
+    <div class="container py-4">
+      <div class="text-center reveal">
+        <p class="eyebrow" style="color: var(--gestalk-teal);">Flagship Innovation</p>
+        <h2 class="section-header">Gestalk — Where Gestures Become Voice</h2>
+        <p class="text-muted mx-auto mb-5" style="max-width: 720px;">
+          Built for the deaf and speech-impaired community, Gestalk pairs a sensor-packed smart glove with an
+          intelligent mobile app. Every hand gesture is captured, understood by AI, and instantly spoken aloud —
+          in voice, text and images. It also converts speech back to text, enabling true two-way conversation.
+        </p>
+      </div>
+
+      <!-- Product render (reduced size, live scan animation) -->
+      <div class="render-showcase reveal mb-5">
+        <div class="render-media">
+          <span class="scan-line"></span>
+          <img src="gestalk-gloves.png" class="render-img"
+            alt="Gestalk Smart Gesture Gloves — left and right hand, with 1.3-inch OLED display, MPU6050 finger sensors and circular Bluetooth wrist enclosure">
         </div>
-        <div class="col-md-6 col-lg-3">
-          <h5 class="text-white mb-3"><i class="bi bi-hand-index-thumb text-warning me-2"></i>Gestalk</h5>
-          <ul class="list-unstyled text-muted">
-            <li><i class="bi bi-check2 small me-2"></i>Gesture Recognition</li>
-            <li><i class="bi bi-check2 small me-2"></i>Multi-language Support</li>
-            <li><i class="bi bi-check2 small me-2"></i>Wireless Connectivity</li>
-          </ul>
+        <div class="render-badges">
+          <span class="chip">Left &amp; Right Gloves</span>
+          <span class="chip">1.3&quot; OLED Display</span>
+          <span class="chip">MPU6050 Finger Sensors</span>
+          <span class="chip">Bluetooth Wrist Enclosure</span>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <h5 class="text-white mb-3"><i class="bi bi-robot text-primary me-2"></i>Poopy</h5>
-          <ul class="list-unstyled text-muted">
-            <li><i class="bi bi-check2 small me-2"></i>Emotion Recognition</li>
-            <li><i class="bi bi-check2 small me-2"></i>Adaptive Learning</li>
-            <li><i class="bi bi-check2 small me-2"></i>Kid-friendly Design</li>
-          </ul>
+      </div>
+
+      <div class="row align-items-center g-5">
+        <!-- Recognition flow -->
+        <div class="col-lg-7 reveal">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <div class="flow-step h-100">
+                <div class="flow-icon"><i class="bi bi-hand-index-thumb"></i></div>
+                <div>
+                  <strong>1. Gesture</strong>
+                  <div class="text-muted small">Flex sensors read the hand sign</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="flow-step h-100">
+                <div class="flow-icon"><i class="bi bi-cpu"></i></div>
+                <div>
+                  <strong>2. AI Recognition</strong>
+                  <div class="text-muted small">Model maps it to ISL meaning</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="flow-step h-100">
+                <div class="flow-icon"><i class="bi bi-volume-up"></i></div>
+                <div>
+                  <strong>3. Voice · Text · Image</strong>
+                  <div class="text-muted small">Output in the companion app</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="flow-step h-100">
+                <div class="flow-icon"><i class="bi bi-mic"></i></div>
+                <div>
+                  <strong>4. Speech → Text</strong>
+                  <div class="text-muted small">Replies convert back to text</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <h5 class="text-white mb-3"><i class="bi bi-recycle text-success me-2"></i>BartonBin</h5>
-          <ul class="list-unstyled text-muted">
-            <li><i class="bi bi-check2 small me-2"></i>AI Image Processing</li>
-            <li><i class="bi bi-check2 small me-2"></i>Auto Sorting</li>
-            <li><i class="bi bi-check2 small me-2"></i>Energy Efficient</li>
-          </ul>
+
+        <!-- Animated App Interface -->
+        <div class="col-lg-5 text-center reveal">
+          <div class="phone">
+            <div class="phone-notch"></div>
+            <div class="app-screen">
+              <div class="app-statusbar">
+                <span id="appClock">9:41</span>
+                <span><i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+              </div>
+              <div class="app-header">
+                <div class="app-logo"><i class="bi bi-hand-index-thumb"></i></div>
+                <div class="text-start">
+                  <div class="app-title">GESTALK</div>
+                  <div class="app-sub">Sign Language Translator</div>
+                </div>
+              </div>
+
+              <div class="app-modes">
+                <div class="app-mode active" data-mode="0">Sign → Voice</div>
+                <div class="app-mode" data-mode="1">Voice → Text</div>
+                <div class="app-mode" data-mode="2">Sign → Image</div>
+              </div>
+
+              <div class="sign-card">
+                <div class="label" id="signLabel">Reading gesture…</div>
+                <span class="sign-hand" id="signHand">👋</span>
+                <div class="sign-dots"><span></span><span></span><span></span></div>
+              </div>
+
+              <div class="out-card">
+                <div class="out-label"><i class="bi bi-translate"></i> Translation</div>
+                <div class="out-text"><span id="outText"></span><span class="cursor">&nbsp;</span></div>
+                <div class="out-native" id="outNative"></div>
+                <div class="speaker">
+                  <i class="bi bi-volume-up-fill"></i>
+                  <div class="wave">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <span class="small text-muted" style="font-size:.6rem;">Playing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-muted small mt-3"><i class="bi bi-phone"></i> Live preview of the Gestalk app interface</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Future Tech Gallery -->
-
-
-  <!-- Success Story / Delivery Section -->
-  <section id="success" class="py-5">
+  <!-- ===== NEUROPRESS ===== -->
+  <section id="neuropress" class="py-5">
     <div class="container">
-
-      <!-- Gestalk Delivery -->
-      <div class="feature-showcase p-4 p-md-5 fade-in-up mb-5">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img src="Productdeliverd2.png" class="success-img" alt="Gestalk Delivery Event">
+      <div class="feature-showcase p-4 p-md-5 reveal">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <img src="neuropress-device.png" class="success-img" alt="NeuroPress Smart Rehabilitation Device"
+              style="background: #ffffff; padding: 14px;">
           </div>
           <div class="col-lg-6 ps-lg-5">
-            <h3 class="mb-4 text-uppercase">Successful Product Delivery</h3>
-            <h4 class="text-highlight mb-3">Gestalk Handover</h4>
+            <p class="eyebrow">Healthcare Innovation</p>
+            <h3 class="mb-3">NeuroPress <span class="text-muted fs-6">— Squeeze. Play. Recover.</span></h3>
             <p class="text-muted">
-              <strong>Redfoxrobotics Pvt. Ltd.</strong> successfully delivered <strong>Gestalk - AI Powered Smart Electronic Glove</strong> to <strong>Government Deaf School Jagathy, Trivandrum</strong> on <strong>31 March 2026</strong>.
+              NeuroPress is a smart neuro-rehabilitation device that turns therapy into an engaging game.
+              By combining a pressure-sensing squeeze ball with interactive gameplay, it helps patients rebuild
+              grip strength, motor control and coordination — while making daily exercise genuinely fun.
             </p>
-            <p class="text-muted">
-              A proud moment for our team, bringing our vision of accessible, smart assistive technology into the hands of those who need it most.
-            </p>
+            <ul class="list-unstyled text-muted mt-3">
+              <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Gamified rehabilitation therapy</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Grip strength &amp; motor recovery</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-danger me-2"></i>Stress relief &amp; daily fitness</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <!-- Neuropress Delivery -->
-      <div class="feature-showcase p-4 p-md-5 fade-in-up">
-        <div class="row align-items-center flex-lg-row-reverse">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img src="77.png" class="success-img" alt="Neuropress Delivery Event">
-          </div>
-          <div class="col-lg-6 pe-lg-5">
-            <h3 class="mb-4">Successful Deployment</h3>
-            <h4 class="text-highlight mb-3">Neuropress Launch</h4>
-            <p class="text-muted">
-              We are proud to introduce our <strong>Neuropress</strong> gaming gadget.
-              This marks a significant milestone in our mission to bring accessible interactive technology to everyone.
-            </p>
-            <p class="text-muted">
-              Designed for fun and wellness, Neuropress combines gaming with daily exercise for a stress-free lifestyle.
-            </p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Team Section -->
+  <!-- ===== SUCCESS STORIES ===== -->
+  <section id="success" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow">Milestones</p>
+        <h2 class="section-header">Successful Deliveries</h2>
+      </div>
+
+      <!-- Gestalk delivery -->
+      <div class="feature-showcase p-4 p-md-5 reveal mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="Productdeliverd2.png" class="success-img" alt="Gestalk Delivery — Deaf School Jagathy">
+          </div>
+          <div class="col-lg-6 ps-lg-5">
+            <h4 class="text-teal mb-3">Gestalk Handover</h4>
+            <p class="text-muted">
+              <strong>Redfoxrobotics Pvt. Ltd.</strong> successfully delivered <strong>Gestalk — the AI-Powered Smart
+              Electronic Glove</strong> to the <strong>Government Deaf School, Jagathy, Trivandrum</strong> on
+              <strong>31 March 2026</strong>.
+            </p>
+            <p class="text-muted">
+              A proud moment for our team — bringing accessible, smart assistive technology into the hands of those
+              who need it most.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NeuroPress delivery -->
+      <div class="feature-showcase p-4 p-md-5 reveal">
+        <div class="row align-items-center flex-lg-row-reverse">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <img src="77.png" class="success-img" alt="NeuroPress Delivery — Anchor Physiotherapy">
+          </div>
+          <div class="col-lg-6 pe-lg-5">
+            <h4 class="text-highlight mb-3">NeuroPress Handover</h4>
+            <p class="text-muted">
+              We successfully delivered <strong>NeuroPress — the Neuro Rehabilitation Device</strong> to
+              <strong>Anchor Physiotherapy &amp; Sports Fitness Studio, Trivandrum</strong> on
+              <strong>7 January 2026</strong>.
+            </p>
+            <p class="text-muted">
+              Designed for recovery and wellness, NeuroPress combines gamified therapy with daily exercise for a
+              healthier, stress-free rehabilitation journey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AWARDS ===== -->
+  <section id="awards" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow">Recognition</p>
+        <h2 class="section-header">Awards &amp; Achievements</h2>
+        <p class="text-muted mx-auto mb-5" style="max-width: 640px;">
+          55+ technical awards and national recognitions — from project expos and 24-hour hackathons to
+          entrepreneurship conclaves across India.
+        </p>
+      </div>
+    </div>
+    <div class="awards-viewport reveal">
+      <div class="awards-track" id="awardsTrack">
+        <!-- images injected + duplicated by JS for seamless loop -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
   <section id="team" class="py-5">
     <div class="container text-center">
-      <h2 class="section-header">Leadership</h2>
+      <p class="eyebrow reveal">The People</p>
+      <h2 class="section-header reveal">Leadership</h2>
       <div class="row justify-content-center">
-        <div class="col-md-4 fade-in-up">
+        <div class="col-md-5 col-lg-4 reveal">
           <div class="team-member">
             <a href="portfolio.html" class="text-decoration-none">
               <img src="2.png" class="team-img" alt="Vimun A" title="Click to view Portfolio">
-              <h4 class="mt-3 text-white">Vimun A</h4>
+              <h4 class="mt-2 text-white">Vimun A</h4>
             </a>
-            <p class="text-primary-yellow mb-1">CEO & Founder</p>
-            <p class="text-muted small px-3 mb-3">Leading the vision to democratize intelligent technologies.</p>
-
-            <!-- Social Links -->
+            <p class="text-highlight mb-1">CEO &amp; Founder</p>
+            <p class="text-muted small px-3 mb-3">Leading the vision to democratize intelligent, accessible
+              technology.</p>
             <div class="d-flex justify-content-center gap-3">
               <a href="https://www.linkedin.com/in/vimun-a-3771b41b4/" target="_blank"
                 class="text-secondary hover-effect"><i class="bi bi-linkedin fs-5"></i></a>
-              <a href="https://www.instagram.com/vimun_official/" target="_blank" class="text-secondary hover-effect"><i
-                  class="bi bi-instagram fs-5"></i></a>
+              <a href="https://www.instagram.com/vimun_official/" target="_blank"
+                class="text-secondary hover-effect"><i class="bi bi-instagram fs-5"></i></a>
               <a href="https://wa.me/916282157697" target="_blank" class="text-secondary hover-effect"><i
                   class="bi bi-whatsapp fs-5"></i></a>
             </div>
@@ -567,11 +1135,11 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- ===== CONTACT ===== -->
   <section id="contact" class="py-5">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-8 reveal">
           <div class="glass-card p-4 p-md-5">
             <h2 class="text-center mb-4">Get in Touch</h2>
             <form onsubmit="sendWhatsApp(); return false;">
@@ -595,33 +1163,30 @@
             </form>
 
             <div class="text-center mt-5 pt-4 border-top border-secondary">
-              <p><strong>Redfoxrobotics pvt. ltd</strong></p>
-              <p class="text-muted small">TBI – Government Engineering College Bartonhill, Trivandrum, Kerala</p>
-              <div class="d-flex justify-content-center gap-4 mt-3">
+              <p><strong>Redfoxrobotics Pvt. Ltd.</strong></p>
+              <p class="text-muted small">TBI – Government Engineering College Barton Hill, Trivandrum, Kerala</p>
+              <div class="d-flex justify-content-center gap-4 mt-3 flex-wrap">
                 <a href="mailto:StartUp.mailrobotics@gmail.com" class="text-white"><i
                     class="bi bi-envelope-fill me-2"></i>Email Us</a>
                 <a href="tel:+916282157697" class="text-white"><i class="bi bi-telephone-fill me-2"></i>+91 62821
                   57697</a>
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="text-center">
     <div class="container">
-      <p class="mb-0 text-muted">&copy; 2026 Redfoxrobotics pvt. ltd | All rights reserved.</p>
+      <p class="mb-0 text-muted">&copy; 2026 Redfoxrobotics Pvt. Ltd. | All rights reserved.</p>
     </div>
   </footer>
 
-
-
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/916282157697" class="whatsapp-float" target="_blank">
+  <a href="https://wa.me/916282157697" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"
       style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
   </a>
@@ -629,20 +1194,89 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-  <script src="js/analytics.js"></script>
 
   <script>
+    /* ---- Contact via WhatsApp ---- */
     function sendWhatsApp() {
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
       var phone = document.getElementById("phone").value;
       var enquiry = document.getElementById("enquiry").value;
-
       var message = `*Website Enquiry*%0A---------------------------%0A👤 *Name:* ${name}%0A📧 *Email:* ${email}%0A📱 *Phone:* ${phone}%0A📝 *Message:* ${enquiry}`;
-
-      var url = `https://wa.me/916282157697?text=${message}`;
-      window.open(url, '_blank');
+      window.open(`https://wa.me/916282157697?text=${message}`, '_blank');
     }
+
+    /* ---- Scroll reveal ---- */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    /* ---- Awards marquee (build from A1..A18, duplicated for seamless loop) ---- */
+    (function buildAwards() {
+      const track = document.getElementById('awardsTrack');
+      let cards = '';
+      for (let i = 1; i <= 18; i++) {
+        cards += `<div class="award-card"><img src="A${i}.webp" alt="Redfoxrobotics Award ${i}" loading="lazy"></div>`;
+      }
+      track.innerHTML = cards + cards; // duplicate => seamless -50% loop
+    })();
+
+    /* ---- Gestalk app interface animation ---- */
+    (function gestalkApp() {
+      const phrases = [
+        { mode: 0, hand: '👋', label: 'Sign detected', text: 'Hello',        native: 'നമസ്കാരം' },
+        { mode: 0, hand: '🙏', label: 'Sign detected', text: 'Thank you',    native: 'നന്ദി' },
+        { mode: 2, hand: '✋', label: 'Sign detected', text: 'I need help',  native: '🆘  സഹായം വേണം' },
+        { mode: 0, hand: '🤟', label: 'Sign detected', text: 'I love you',   native: 'ഞാൻ സ്നേഹിക്കുന്നു' },
+        { mode: 1, hand: '🎤', label: 'Listening…',    text: 'How are you?', native: 'സുഖമാണോ?' },
+        { mode: 2, hand: '👍', label: 'Sign detected', text: 'Yes, good',    native: '👍  ശരി' },
+        { mode: 0, hand: '💧', label: 'Sign detected', text: 'Water',        native: 'വെള്ളം' }
+      ];
+
+      const elHand = document.getElementById('signHand');
+      const elLabel = document.getElementById('signLabel');
+      const elText = document.getElementById('outText');
+      const elNative = document.getElementById('outNative');
+      const modes = document.querySelectorAll('.app-mode');
+      let idx = 0;
+      let typeTimer = null;
+
+      function typeText(str, done) {
+        if (typeTimer) clearInterval(typeTimer);
+        elText.textContent = '';
+        let i = 0;
+        const t = typeTimer = setInterval(() => {
+          elText.textContent += str[i++];
+          if (i >= str.length) { clearInterval(t); done && done(); }
+        }, 70);
+      }
+
+      function play(p) {
+        // update mode tabs
+        modes.forEach(m => m.classList.toggle('active', +m.dataset.mode === p.mode));
+        elHand.textContent = p.hand;
+        elLabel.textContent = p.label;
+        elNative.textContent = '';
+        typeText(p.text, () => { elNative.textContent = p.native; });
+      }
+
+      play(phrases[0]);
+      setInterval(() => {
+        idx = (idx + 1) % phrases.length;
+        play(phrases[idx]);
+      }, 3400);
+    })();
+
+    /* ---- Live-ish clock in app status bar ---- */
+    (function clock() {
+      const el = document.getElementById('appClock');
+      function tick() {
+        const d = new Date();
+        el.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+      tick(); setInterval(tick, 15000);
+    })();
   </script>
 </body>
 
