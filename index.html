@@ -180,6 +180,18 @@
     .text-teal { color: var(--gestalk-teal); }
     .text-muted { color: var(--text-muted) !important; }
 
+    /* Prevent browser image-search overlays (Edge Visual Search, Opera/Google Lens)
+       from appearing on product photos — they only attach to hoverable <img> elements */
+    .hero-img,
+    .render-img,
+    .glove-img,
+    .product-media,
+    .success-img {
+      pointer-events: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
     .hero-img {
       width: 100%;
       max-width: 480px;
