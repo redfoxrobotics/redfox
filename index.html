@@ -770,6 +770,98 @@
       background: #040404;
     }
 
+    /* Delivered badge variant */
+    .hero-badge-delivered {
+      background: rgba(252, 217, 0, 0.1);
+      border-color: rgba(252, 217, 0, 0.35);
+      color: var(--primary-yellow);
+    }
+
+    /* Mission cards */
+    .mission-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FAQ accordion */
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 12px;
+      border-radius: 14px !important;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      padding: 1.1rem 1.4rem;
+      box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: rgba(22, 168, 154, 0.1);
+      color: #6fe6d8;
+    }
+
+    .accordion-button::after {
+      filter: invert(1) grayscale(1);
+    }
+
+    .accordion-body {
+      color: var(--text-muted);
+    }
+
+    /* Backed-by / partner tiles */
+    .backer-tile {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      min-height: 96px;
+      padding: 1rem;
+      border-radius: 16px;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-weight: 600;
+      height: 100%;
+    }
+
+    .backer-tile img {
+      max-height: 56px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Media cards */
+    .media-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.6rem;
+      height: 100%;
+      transition: all 0.3s;
+    }
+
+    .media-card:hover {
+      border-color: var(--primary-red);
+      transform: translateY(-4px);
+    }
+
+    .media-outlet {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary-yellow);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
     /* Responsive */
     @media (max-width: 991px) {
       .hero-section { padding: 60px 0 50px; text-align: center; }
@@ -813,9 +905,12 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav gap-3">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#gestalk">Gestalk App</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
           <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#media">Media</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -828,25 +923,34 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <span class="hero-badge"><i class="bi bi-stars"></i> AI-Powered Assistive Technology</span>
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <span class="hero-badge"><i class="bi bi-stars"></i> AI-Powered Assistive Technology</span>
+            <span class="hero-badge hero-badge-delivered"><i class="bi bi-patch-check-fill"></i> Delivered &amp; In
+              Use</span>
+          </div>
           <h1 class="hero-title">Giving a <span class="text-highlight">Voice</span><br>to Every Hand</h1>
           <p class="lead text-muted mb-4">
-            At <strong>Redfoxrobotics Pvt. Ltd.</strong> we build intelligent assistive devices that
-            break barriers — translating sign language into speech and restoring movement through smart
-            rehabilitation. Incubated at TBI, GEC Barton Hill, Trivandrum.
+            India is home to <strong>63 million+</strong> deaf and hard-of-hearing people.
+            At <strong>Redfoxrobotics Pvt. Ltd.</strong> we build intelligent assistive devices that break that
+            barrier — translating Indian Sign Language into speech and restoring movement through smart
+            rehabilitation. Not prototypes — our devices are already in the hands of real users in Kerala.
           </p>
           <div class="d-flex flex-wrap gap-3 mb-4">
             <a href="#gestalk" class="btn btn-teal">Explore Gestalk <i class="bi bi-arrow-right ms-1"></i></a>
             <a href="#products" class="btn btn-outline-light-soft">Our Products</a>
           </div>
-          <div class="d-flex stat-row mt-4">
+          <div class="d-flex flex-wrap stat-row mt-4">
             <div>
               <div class="stat-num">55+</div>
               <div class="stat-label">Awards &amp; Recognitions</div>
             </div>
             <div>
               <div class="stat-num">2</div>
-              <div class="stat-label">Products Delivered</div>
+              <div class="stat-label">Products Delivered &amp; In Use</div>
+            </div>
+            <div>
+              <div class="stat-num">63M+</div>
+              <div class="stat-label">Lives We Aim to Reach</div>
             </div>
             <div>
               <div class="stat-num">🇮🇳</div>
@@ -856,6 +960,54 @@
         </div>
         <div class="col-lg-6 text-center">
           <img src="gestalk-gloves.webp" class="img-fluid hero-img" alt="Gestalk AI Smart Gesture Gloves">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISSION ===== -->
+  <section id="mission" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow">Why We Exist</p>
+        <h2 class="section-header">Our Mission</h2>
+        <p class="text-muted mx-auto mb-5" style="max-width: 760px;">
+          Communication is a basic human right — yet millions of deaf and speech-impaired people are cut off
+          from everyday conversation, and countless patients struggle through slow, discouraging rehabilitation.
+          We build affordable, intelligent devices that change that.
+        </p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="glass-card text-center">
+            <div class="mission-icon mx-auto" style="background: rgba(22,168,154,.15); color:#6fe6d8;">
+              <i class="bi bi-chat-heart"></i>
+            </div>
+            <h5>Mission</h5>
+            <p class="text-muted mb-0">To bridge the communication gap for the deaf and speech-impaired community
+              with real-time, AI-powered sign language translation — and make smart rehabilitation accessible to
+              every patient who needs it.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="glass-card text-center">
+            <div class="mission-icon mx-auto" style="background: rgba(252,217,0,.12); color: var(--primary-yellow);">
+              <i class="bi bi-eye"></i>
+            </div>
+            <h5>Vision</h5>
+            <p class="text-muted mb-0">A world where accessibility is the standard, not an afterthought — where
+              every hand has a voice and every recovery journey is engaging, measurable and dignified.</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="glass-card text-center">
+            <div class="mission-icon mx-auto" style="background: rgba(211,47,47,.15); color:#ff8a80;">
+              <i class="bi bi-rocket-takeoff"></i>
+            </div>
+            <h5>Impact, Today</h5>
+            <p class="text-muted mb-0">We don't stop at prototypes. Gestalk is in daily use at the Government Deaf
+              School, Jagathy, and NeuroPress is helping patients recover at a physiotherapy studio in Trivandrum.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1033,6 +1185,117 @@
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow" style="color: var(--gestalk-teal);">Good to Know</p>
+        <h2 class="section-header">Frequently Asked Questions</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-9 reveal">
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  What exactly does Gestalk do?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Gestalk is an AI-powered smart electronic glove that captures hand gestures and translates
+                  <strong>Indian Sign Language</strong> into voice, text and images in real time through its
+                  companion mobile app. It also converts spoken replies back into text — enabling true two-way
+                  conversation between signing and non-signing people.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2">
+                  Which sign language does it support?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Gestalk is built for <strong>Indian Sign Language (ISL)</strong>, and its gesture vocabulary can
+                  be expanded over time to cover more signs and phrases.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3">
+                  How does the glove connect to the app?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  The glove pairs with the Gestalk companion mobile app over <strong>Bluetooth</strong>. Gestures
+                  captured by the glove appear in the app instantly as voice, text and images.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4">
+                  How long does the battery last?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <!-- TODO: replace with the exact battery specification -->
+                  Gestalk runs on a rechargeable battery designed to last through a full day of typical classroom
+                  or workplace use, and recharges easily overnight.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq5">
+                  Who is Gestalk designed for?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Deaf and speech-impaired individuals, special schools, therapy and training centres, and
+                  workplaces that want to communicate naturally with signing colleagues, students or customers.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq6">
+                  Is Gestalk available now? How do I get one?
+                </button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes — Gestalk is past the prototype stage. The first units were delivered to the
+                  <strong>Government Deaf School, Jagathy, Trivandrum</strong> in March 2026. For a demo, pricing
+                  or an order, <a href="#contact" class="text-teal">get in touch</a> or message us directly on
+                  WhatsApp.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== NEUROPRESS ===== -->
   <section id="neuropress" class="py-5">
     <div class="container">
@@ -1128,6 +1391,64 @@
     <div class="awards-viewport reveal">
       <div class="awards-track" id="awardsTrack">
         <!-- images injected + duplicated by JS for seamless loop -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BACKED BY ===== -->
+  <section id="backed" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow">Our Ecosystem</p>
+        <h2 class="section-header">Incubated &amp; Supported By</h2>
+      </div>
+      <div class="row g-3 justify-content-center reveal">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="backer-tile">
+            <div>
+              <i class="bi bi-building d-block fs-3 mb-2 text-highlight"></i>
+              TBI — Government Engineering College Barton Hill, Trivandrum
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="backer-tile" style="background: #fff;">
+            <img src="ksum-logo.png" alt="Kerala Startup Mission" style="max-height: 64px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEDIA ===== -->
+  <section id="media" class="py-5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="eyebrow">Press &amp; Coverage</p>
+        <h2 class="section-header">In the Media</h2>
+      </div>
+      <div class="row g-4 justify-content-center reveal">
+        <div class="col-md-6 col-lg-5">
+          <div class="media-card">
+            <div class="media-outlet"><i class="bi bi-newspaper me-1"></i> The Hindu</div>
+            <h5 class="mb-3">A gesture to voice: robotic device for speech-impaired draws attention</h5>
+            <p class="text-muted small mb-3">The Hindu covers our gesture-to-voice assistive device built for the
+              speech-impaired community.</p>
+            <a href="https://www.thehindu.com/news/cities/Kochi/a-gesture-to-voice-robotic-device-for-speech-impaired-draws-attention/article68558826.ece"
+              target="_blank" rel="noopener" class="text-teal text-decoration-none">Read the Article
+              <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5">
+          <div class="media-card">
+            <div class="media-outlet"><i class="bi bi-newspaper me-1"></i> Mathrubhumi</div>
+            <h5 class="mb-3">Mathrubhumi features our gesture-to-voice innovation</h5>
+            <p class="text-muted small mb-3">News coverage of our assistive technology for the deaf and
+              speech-impaired community.</p>
+            <a href="https://www.instagram.com/p/C_Cm12QyjJF/" target="_blank" rel="noopener"
+              class="text-teal text-decoration-none">View the Coverage <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
