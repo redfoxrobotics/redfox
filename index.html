@@ -850,7 +850,7 @@
       border-top: 1px solid rgba(0, 86, 179, 0.08);
       margin-top: 4rem;
       padding: 2rem 0;
-      background: var(--bg-light);
+      background: var(--bg-white);
     }
 
     /* Delivered badge variant */
@@ -1054,132 +1054,6 @@
       }
     }
 
-    /* ===== ROADMAP TIMELINE ===== */
-    .roadmap-section {
-      background: var(--bg-light);
-      position: relative;
-      z-index: 2;
-    }
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 0;
-    }
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: linear-gradient(180deg, var(--primary-blue), var(--secondary-blue), var(--gestalk-teal));
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-      border-radius: 10px;
-    }
-    .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      background-color: inherit;
-      width: 50%;
-    }
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      right: -10px;
-      background-color: var(--bg-white);
-      border: 4px solid var(--primary-blue);
-      top: 25px;
-      border-radius: 50%;
-      z-index: 1;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(0, 86, 179, 0.2);
-    }
-    .timeline-item.completed::after {
-      background-color: var(--primary-blue);
-    }
-    .timeline-item.active::after {
-      background-color: var(--secondary-blue);
-      box-shadow: 0 0 15px var(--secondary-blue);
-      animation: pulseBlue 1.5s infinite;
-    }
-    @keyframes pulseBlue {
-      0% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(0, 136, 204, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0); }
-    }
-    .left {
-      left: 0;
-    }
-    .right {
-      left: 50%;
-    }
-    .right::after {
-      left: -10px;
-    }
-    .timeline-content {
-      padding: 1.5rem;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      position: relative;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 86, 179, 0.03);
-    }
-    .timeline-content h4 {
-      margin-top: 0;
-      color: var(--primary-blue);
-      font-size: 1.15rem;
-    }
-    .timeline-content p {
-      margin-bottom: 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .timeline-content .badge {
-      font-size: 0.65rem;
-      padding: 4px 10px;
-      border-radius: 50px;
-      margin-bottom: 8px;
-      display: inline-block;
-      font-weight: 600;
-    }
-    .badge-completed {
-      background: rgba(0, 86, 179, 0.08);
-      color: var(--primary-blue);
-      border: 1px solid rgba(0, 86, 179, 0.2);
-    }
-    .badge-active {
-      background: rgba(0, 136, 204, 0.08);
-      color: var(--secondary-blue);
-      border: 1px solid rgba(0, 136, 204, 0.2);
-    }
-    .badge-future {
-      background: rgba(92, 108, 132, 0.05);
-      color: var(--text-muted);
-      border: 1px solid rgba(92, 108, 132, 0.15);
-    }
-
-    @media screen and (max-width: 768px) {
-      .timeline::after {
-        left: 31px;
-      }
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-      }
-      .timeline-item::after {
-        left: 21px;
-      }
-      .left::after, .right::after {
-        left: 21px;
-      }
-      .right {
-        left: 0%;
-      }
-    }
   </style>
 </head>
 
@@ -1201,7 +1075,6 @@
           <li class="nav-item"><a class="nav-link" href="#mission">Mission</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="#gestalk">Gestalk App</a></li>
-          <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
           <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
           <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
           <li class="nav-item"><a class="nav-link" href="#media">Media</a></li>
@@ -1730,73 +1603,15 @@
     </div>
   </section>
 
-  <!-- SVG wave transition divider: Success to Roadmap -->
+  <!-- SVG wave transition divider: Success to Awards -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
       <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
     </svg>
   </div>
 
-  <!-- ===== ROADMAP ===== -->
-  <section id="roadmap" class="py-5 roadmap-section">
-    <div class="container">
-      <div class="text-center reveal">
-        <p class="eyebrow">Our Journey</p>
-        <h2 class="section-header">Product Roadmap</h2>
-        <p class="text-muted mx-auto mb-5" style="max-width: 640px;">
-          Tracing our milestone achievements and outlining the future scaling phases of Redfox Robotics.
-        </p>
-      </div>
-
-      <div class="timeline reveal">
-        <!-- Phase 1 -->
-        <div class="timeline-item left completed">
-          <div class="timeline-content">
-            <span class="badge badge-completed"><i class="bi bi-check-circle-fill me-1"></i> Phase 1 (Completed)</span>
-            <h4>Research &amp; R&amp;D</h4>
-            <p>Conducted initial gesture capture R&amp;D, designed sensor bending algorithms, mapped Indian Sign Language gestures, and built initial hardware prototypes.</p>
-          </div>
-        </div>
-
-        <!-- Phase 2 -->
-        <div class="timeline-item right completed">
-          <div class="timeline-content">
-            <span class="badge badge-completed"><i class="bi bi-check-circle-fill me-1"></i> Phase 2 (Completed)</span>
-            <h4>Validation &amp; Pilots</h4>
-            <p>Successfully delivered the flagship Gestalk glove to the Govt Deaf School, Jagathy, and deployed the NeuroPress rehabilitation system to Anchor Physiotherapy.</p>
-          </div>
-        </div>
-
-        <!-- Phase 3 -->
-        <div class="timeline-item left active">
-          <div class="timeline-content">
-            <span class="badge badge-active"><i class="bi bi-clock-history me-1"></i> Phase 3 (In Progress)</span>
-            <h4>App &amp; Voice Expansion</h4>
-            <p>Upgrading Bluetooth low-energy hardware firmware, redesigning companion app UI/UX, and adding multi-language synthetic speech translation support.</p>
-          </div>
-        </div>
-
-        <!-- Phase 4 -->
-        <div class="timeline-item right">
-          <div class="timeline-content">
-            <span class="badge badge-future"><i class="bi bi-rocket me-1"></i> Phase 4 (Future)</span>
-            <h4>Scaling &amp; Medical Audits</h4>
-            <p>Scaling manufacture of Gestalk devices, completing regulatory medical certification audits for NeuroPress, and expanding to support international sign systems.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SVG wave transition divider: Roadmap to Awards -->
-  <div class="water-wave-divider wave-flip">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
-    </svg>
-  </div>
-
   <!-- ===== AWARDS ===== -->
-  <section id="awards" class="py-5" style="background-color: var(--bg-white); position: relative; z-index: 2;">
+  <section id="awards" class="py-5" style="background-color: var(--bg-light); position: relative; z-index: 2;">
     <div class="container">
       <div class="text-center reveal">
         <p class="eyebrow">Recognition</p>
@@ -1817,12 +1632,12 @@
   <!-- SVG wave transition divider: Awards to Backed -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
+      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
     </svg>
   </div>
 
   <!-- ===== BACKED BY ===== -->
-  <section id="backed" class="py-5" style="background-color: var(--bg-light); position: relative; z-index: 2;">
+  <section id="backed" class="py-5" style="background-color: var(--bg-white); position: relative; z-index: 2;">
     <div class="container">
       <div class="text-center reveal">
         <p class="eyebrow">Our Ecosystem</p>
@@ -1849,12 +1664,12 @@
   <!-- SVG wave transition divider: Backed to Media -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
+      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
     </svg>
   </div>
 
   <!-- ===== MEDIA ===== -->
-  <section id="media" class="py-5" style="background-color: var(--bg-white); position: relative; z-index: 2;">
+  <section id="media" class="py-5" style="background-color: var(--bg-light); position: relative; z-index: 2;">
     <div class="container">
       <div class="text-center reveal">
         <p class="eyebrow">Press &amp; Coverage</p>
@@ -1889,12 +1704,12 @@
   <!-- SVG wave transition divider: Media to Team -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
+      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
     </svg>
   </div>
 
   <!-- ===== TEAM ===== -->
-  <section id="team" class="py-5" style="background-color: var(--bg-light); position: relative; z-index: 2;">
+  <section id="team" class="py-5" style="background-color: var(--bg-white); position: relative; z-index: 2;">
     <div class="container text-center">
       <p class="eyebrow reveal">The People</p>
       <h2 class="section-header reveal">Leadership</h2>
@@ -1925,12 +1740,12 @@
   <!-- SVG wave transition divider: Team to Contact -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
+      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
     </svg>
   </div>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="py-5" style="background-color: var(--bg-white); position: relative; z-index: 2;">
+  <section id="contact" class="py-5" style="background-color: var(--bg-light); position: relative; z-index: 2;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 reveal">
@@ -1974,7 +1789,7 @@
   <!-- SVG wave transition divider: Contact to Footer -->
   <div class="water-wave-divider wave-flip">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#f4f8fb"></path>
+      <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" fill="#ffffff"></path>
     </svg>
   </div>
 
