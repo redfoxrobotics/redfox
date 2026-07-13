@@ -133,7 +133,7 @@
       pointer-events: none;
     }
 
-    .wave {
+    .ocean-wave {
       background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 220'><path fill='%23ffffff' fill-opacity='0.6' d='M0,96L120,112C240,128,480,160,720,160C960,160,1200,128,1320,112L1440,96L1440,220L1320,220C1200,220,960,220,720,220C480,220,240,220,120,220L0,220Z'></path></svg>");
       position: absolute;
       bottom: 0;
@@ -143,7 +143,7 @@
       transform: translate3d(0, 0, 0);
     }
 
-    .wave:nth-of-type(2) {
+    .ocean-wave:nth-of-type(2) {
       bottom: -10px;
       background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 220'><path fill='%23ffffff' fill-opacity='1' d='M0,128L120,138.7C240,149,480,171,720,170.7C960,171,1200,149,1320,138.7L1440,128L1440,220L1320,220C1200,220,960,220,720,220C480,220,240,220,120,220L0,220Z'></path></svg>");
       animation: waveMove 18s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swellMove 18s ease -1.25s infinite;
@@ -1272,8 +1272,8 @@
     </div>
     <!-- Animated ocean wave background at the bottom of the hero section -->
     <div class="ocean">
-      <div class="wave"></div>
-      <div class="wave"></div>
+      <div class="ocean-wave"></div>
+      <div class="ocean-wave"></div>
     </div>
   </section>
 
