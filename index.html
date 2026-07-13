@@ -976,8 +976,8 @@
     .hero-video-container {
       position: relative;
       width: 100%;
-      max-width: 420px;
-      aspect-ratio: 1/1;
+      max-width: 300px;
+      aspect-ratio: 460/908;
       margin: 0 auto;
       animation: floatY 5s ease-in-out infinite;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -993,21 +993,21 @@
     }
     .hero-video-el {
       position: absolute;
-      top: 11.23%;
-      left: 30.27%;
-      width: 39.06%;
-      height: 79.59%;
+      top: 6.39%;
+      left: 6.52%;
+      width: 86.96%;
+      height: 89.76%;
       object-fit: cover;
       z-index: 1;
-      border-radius: 24px;
+      border-radius: 28px;
       background: #000;
       display: block;
     }
     .video-controls-overlay {
       position: absolute;
-      bottom: 15%;
-      left: 30.27%;
-      width: 39.06%;
+      bottom: 8%;
+      left: 6.52%;
+      width: 86.96%;
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -1051,12 +1051,11 @@
     @media (max-width: 991px) {
       .hero-video-container {
         margin-top: 2rem;
-        max-width: 380px;
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       .hero-video-container {
-        max-width: 320px;
+        max-width: 260px;
       }
     }
 
