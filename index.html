@@ -972,51 +972,43 @@
       .navbar-brand span { font-size: 1.1rem; }
     }
 
-    /* ===== HERO VIDEO CONTAINER (REALISTIC IPHONE PNG OVERLAY) ===== */
-    .hero-video-container {
-      position: relative;
+    /* ===== HERO VIDEO CARD (RAW VIDEO WITH CURVED EDGES) ===== */
+    .hero-video-card {
       width: 100%;
-      max-width: 300px;
-      aspect-ratio: 460/908;
+      max-width: 320px;
       margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 9/16;
+      box-shadow: 0 25px 60px rgba(0, 86, 179, 0.15), 0 0 35px rgba(0, 86, 179, 0.25);
       animation: floatY 5s ease-in-out infinite;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .iphone-frame-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-      pointer-events: none;
-      object-fit: contain;
+    .hero-video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 80px rgba(0, 86, 179, 0.25), 0 0 45px rgba(0, 86, 179, 0.4);
     }
     .hero-video-el {
-      position: absolute;
-      top: 6.39%;
-      left: 6.52%;
-      width: 86.96%;
-      height: 89.76%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      z-index: 1;
-      border-radius: 28px;
-      background: #000;
       display: block;
     }
     .video-controls-overlay {
       position: absolute;
-      bottom: 8%;
-      left: 6.52%;
-      width: 86.96%;
+      bottom: 20px;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: center;
       gap: 15px;
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      z-index: 15;
+      z-index: 10;
     }
-    .hero-video-container:hover .video-controls-overlay {
+    .hero-video-card:hover .video-controls-overlay {
       opacity: 1;
       transform: translateY(0);
     }
@@ -1049,12 +1041,13 @@
       transform: scale(1.1);
     }
     @media (max-width: 991px) {
-      .hero-video-container {
+      .hero-video-card {
         margin-top: 2rem;
+        max-width: 300px;
       }
     }
-    @media (max-width: 480px) {
-      .hero-video-container {
+    @media (max-width: 768px) {
+      .hero-video-card {
         max-width: 260px;
       }
     }
@@ -1131,8 +1124,7 @@
           </div>
         </div>
         <div class="col-lg-6 text-center">
-          <div class="hero-video-container">
-            <img src="iphone-frame.png" class="iphone-frame-img" alt="iPhone Frame">
+          <div class="hero-video-card">
             <video id="heroVideo" class="hero-video-el" autoplay loop muted playsinline>
               <source src="gestalk-eng-new.mp4" type="video/mp4">
               Your browser does not support the video tag.
