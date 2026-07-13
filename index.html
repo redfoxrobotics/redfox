@@ -972,15 +972,16 @@
       .navbar-brand span { font-size: 1.1rem; }
     }
 
-    /* ===== HERO VIDEO CARD ===== */
+    /* ===== HERO VIDEO CARD (IPHONE FRAME) ===== */
     .hero-video-card {
       width: 100%;
-      max-width: 340px;
+      max-width: 320px;
       margin: 0 auto;
-      border-radius: 32px;
-      border: 8px solid #1c1f22;
+      border-radius: 40px;
+      border: 11px solid #1a1b1e;
+      outline: 2px solid #5a5f66;
       background: #000;
-      box-shadow: 0 30px 70px rgba(0, 86, 179, 0.15), 0 0 30px rgba(0, 86, 179, 0.25);
+      box-shadow: 0 25px 60px rgba(0, 86, 179, 0.18), 0 0 35px rgba(0, 86, 179, 0.25);
       position: relative;
       overflow: hidden;
       aspect-ratio: 9/16;
@@ -989,7 +990,31 @@
     }
     .hero-video-card:hover {
       border-color: #26292d;
-      box-shadow: 0 35px 80px rgba(0, 86, 179, 0.25), 0 0 45px rgba(0, 86, 179, 0.4);
+      outline-color: #7a7f85;
+      box-shadow: 0 35px 80px rgba(0, 86, 179, 0.28), 0 0 45px rgba(0, 86, 179, 0.4);
+    }
+    .iphone-dynamic-island {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85px;
+      height: 18px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 5;
+      box-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
+    }
+    .iphone-home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 2px;
+      z-index: 5;
     }
     .hero-video-el {
       width: 100%;
@@ -1127,6 +1152,7 @@
         </div>
         <div class="col-lg-6 text-center">
           <div class="hero-video-card">
+            <div class="iphone-dynamic-island"></div>
             <video id="heroVideo" class="hero-video-el" autoplay loop muted playsinline>
               <source src="gestalk-eng.mp4" type="video/mp4">
               Your browser does not support the video tag.
@@ -1139,6 +1165,7 @@
                 <i class="bi bi-volume-mute-fill"></i>
               </button>
             </div>
+            <div class="iphone-home-indicator"></div>
           </div>
         </div>
       </div>
