@@ -972,70 +972,51 @@
       .navbar-brand span { font-size: 1.1rem; }
     }
 
-    /* ===== HERO VIDEO CARD (IPHONE FRAME) ===== */
-    .hero-video-card {
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      border-radius: 40px;
-      border: 11px solid #1a1b1e;
-      outline: 2px solid #5a5f66;
-      background: #000;
-      box-shadow: 0 25px 60px rgba(0, 86, 179, 0.18), 0 0 35px rgba(0, 86, 179, 0.25);
+    /* ===== HERO VIDEO CONTAINER (REALISTIC IPHONE PNG OVERLAY) ===== */
+    .hero-video-container {
       position: relative;
-      overflow: hidden;
-      aspect-ratio: 9/16;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1/1;
+      margin: 0 auto;
       animation: floatY 5s ease-in-out infinite;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .hero-video-card:hover {
-      border-color: #26292d;
-      outline-color: #7a7f85;
-      box-shadow: 0 35px 80px rgba(0, 86, 179, 0.28), 0 0 45px rgba(0, 86, 179, 0.4);
-    }
-    .iphone-dynamic-island {
+    .iphone-frame-img {
       position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 85px;
-      height: 18px;
-      background: #000;
-      border-radius: 20px;
-      z-index: 5;
-      box-shadow: 0 0 2px rgba(255, 255, 255, 0.15);
-    }
-    .iphone-home-indicator {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 2px;
-      z-index: 5;
-    }
-    .hero-video-el {
+      inset: 0;
       width: 100%;
       height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      object-fit: contain;
+    }
+    .hero-video-el {
+      position: absolute;
+      top: 11.23%;
+      left: 30.27%;
+      width: 39.06%;
+      height: 79.59%;
       object-fit: cover;
+      z-index: 1;
+      border-radius: 24px;
+      background: #000;
       display: block;
     }
     .video-controls-overlay {
       position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
+      bottom: 15%;
+      left: 30.27%;
+      width: 39.06%;
       display: flex;
       justify-content: center;
       gap: 15px;
       opacity: 0;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      z-index: 10;
+      z-index: 15;
     }
-    .hero-video-card:hover .video-controls-overlay {
+    .hero-video-container:hover .video-controls-overlay {
       opacity: 1;
       transform: translateY(0);
     }
@@ -1068,14 +1049,14 @@
       transform: scale(1.1);
     }
     @media (max-width: 991px) {
-      .hero-video-card {
+      .hero-video-container {
         margin-top: 2rem;
-        max-width: 300px;
+        max-width: 380px;
       }
     }
     @media (max-width: 768px) {
-      .hero-video-card {
-        max-width: 260px;
+      .hero-video-container {
+        max-width: 320px;
       }
     }
 
@@ -1151,10 +1132,10 @@
           </div>
         </div>
         <div class="col-lg-6 text-center">
-          <div class="hero-video-card">
-            <div class="iphone-dynamic-island"></div>
+          <div class="hero-video-container">
+            <img src="iphone-frame.png" class="iphone-frame-img" alt="iPhone Frame">
             <video id="heroVideo" class="hero-video-el" autoplay loop muted playsinline>
-              <source src="gestalk-eng.mp4" type="video/mp4">
+              <source src="gestalk-eng-new.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
             <div class="video-controls-overlay">
@@ -1165,7 +1146,6 @@
                 <i class="bi bi-volume-mute-fill"></i>
               </button>
             </div>
-            <div class="iphone-home-indicator"></div>
           </div>
         </div>
       </div>
