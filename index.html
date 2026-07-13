@@ -214,6 +214,18 @@
       color: var(--primary-yellow) !important;
     }
 
+    .navbar-toggler {
+      border: 1px solid rgba(0, 86, 179, 0.2) !important;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230056b3' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+
     /* Hero */
     .hero-section {
       padding: 90px 0 70px;
@@ -949,17 +961,21 @@
     /* Responsive */
     @media (max-width: 991px) {
       .hero-section { padding: 60px 0 50px; text-align: center; }
+      .hero-section .d-flex { justify-content: center !important; }
       .hero-title { font-size: 2.8rem; }
       .hero-img { margin-top: 2rem; max-width: 380px; }
-      .stat-row { justify-content: center; }
+      .stat-row { justify-content: center; gap: 20px; }
+      .stat-row > div { text-align: center; }
       .navbar-collapse {
-        background: rgba(10, 10, 10, 0.97);
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         padding: 1.5rem;
-        border-radius: 12px;
+        border-radius: 16px;
         margin-top: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 86, 179, 0.15);
         text-align: center;
+        box-shadow: 0 15px 40px rgba(0, 86, 179, 0.08);
       }
       .navbar-nav { align-items: center; }
     }
@@ -968,7 +984,7 @@
       .hero-img { max-width: 300px; }
       .hero-title { font-size: 2.2rem; }
       .section-header { font-size: 1.7rem; }
-      .glass-card { padding: 1.5rem; }
+      .glass-card { padding: 1.25rem; }
       .navbar-brand span { font-size: 1.1rem; }
     }
 
@@ -1064,7 +1080,7 @@
         <img src="1.webp" alt="Redfox Logo">
         <span>Redfoxrobotics</span>
       </a>
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
