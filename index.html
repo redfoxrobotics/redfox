@@ -1740,13 +1740,15 @@
 
       if (!video || !playPauseBtn || !muteBtn) return;
 
+      let userPaused = false;
+
       playPauseBtn.addEventListener('click', () => {
         if (video.paused) {
           video.play();
-          playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+          userPaused = false;
         } else {
           video.pause();
-          playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+          userPaused = true;
         }
       });
 
@@ -1766,6 +1768,22 @@
       video.addEventListener('pause', () => {
         playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
       });
+
+      // Pause when scrolled out of view, play when in view
+      if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!userPaused) {
+                video.play().catch(err => console.log("Playback prevented: ", err));
+              }
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.15 });
+        videoObserver.observe(video);
+      }
     })();
   </script>
 </body>
