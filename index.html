@@ -221,8 +221,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(4, 18, 35, 0.98) 0%, rgba(4, 18, 35, 0.93) 38%, rgba(4, 18, 35, 0.72) 58%, rgba(4, 18, 35, 0.25) 100%);
+      background: linear-gradient(
+        90deg,
+        rgba(4, 18, 35, 0.95) 0%,
+        rgba(4, 18, 35, 0.88) 24%,
+        rgba(4, 18, 35, 0.55) 40%,
+        rgba(4, 18, 35, 0.15) 54%,
+        rgba(4, 18, 35, 0.0) 68%,
+        rgba(4, 18, 35, 0.0) 100%
+      );
       z-index: 1;
+      pointer-events: none;
     }
     .hero-image {
       position: absolute;
@@ -230,8 +239,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: 55% center;
       z-index: 0;
+      filter: brightness(1.10) contrast(1.04) saturate(1.06);
     }
     .hero-content {
       position: relative;
@@ -239,6 +249,54 @@
       width: min(1230px, calc(100% - 40px));
       margin: auto;
       padding: 90px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 72px);
+    }
+    .hero-message { min-width: 0; }
+    .hero-product {
+      margin: 0;
+      padding: 22px;
+      background: #ffffff;
+      color: var(--ink);
+      border: 1px solid #d9eef4;
+      border-radius: 28px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+    }
+    .hero-product-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .hero-product-label span {
+      padding: 5px 10px;
+      background: var(--cyan-light);
+      color: #08617c;
+      border-radius: var(--radius-full);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+    .hero-product img {
+      width: 100%;
+      height: clamp(260px, 28vw, 390px);
+      object-fit: contain;
+      margin: 14px 0;
+    }
+    .hero-product figcaption {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: #536479;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+    .hero-product figcaption strong { display: block; color: var(--ink); }
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--cyan-deep);
+      outline-offset: 5px;
     }
     .eyebrow, .kicker {
       font: 500 0.76rem "DM Mono", monospace;
@@ -269,6 +327,7 @@
       line-height: 1.02;
       letter-spacing: -0.06em;
       margin-bottom: 22px;
+      text-shadow: 0 2px 20px rgba(4, 18, 35, 0.85), 0 1px 4px rgba(4, 18, 35, 0.9);
     }
     h1 span {
       color: var(--cyan);
@@ -279,6 +338,7 @@
       font-size: 1.08rem;
       line-height: 1.6;
       margin-bottom: 34px;
+      text-shadow: 0 1px 12px rgba(4, 18, 35, 0.85);
     }
     .hero-actions {
       display: flex;
@@ -414,6 +474,7 @@
       margin: 28px 0;
       display: grid;
       gap: 14px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .features li {
       display: flex;
@@ -421,7 +482,13 @@
       font-weight: 600;
       color: #25405c;
       align-items: flex-start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      font-size: 0.9rem;
     }
+    .features li strong { display: block; color: var(--ink); margin-bottom: 4px; }
     .check {
       display: grid;
       place-items: center;
@@ -850,19 +917,11 @@
       font-size: 0.78rem;
     }
 
-    /* Animation on reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    /* Keep every section visible even when JavaScript is unavailable. */
+    .reveal { opacity: 1; }
 
     /* ===== RESPONSIVE STYLES (TABLETS & MOBILE) ===== */
-    @media (max-width: 960px) {
+    @media (max-width: 1100px) {
       .nav { height: 72px; }
       .nav-toggle { display: inline-flex; }
       .nav-menu {
@@ -880,6 +939,7 @@
         gap: 20px;
         transform: translateY(-120%);
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
         max-height: calc(100vh - 72px);
@@ -888,6 +948,7 @@
       .nav-menu.open {
         transform: translateY(0);
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
       }
       .links {
@@ -971,6 +1032,15 @@
       }
     }
 
+    @media (max-width: 800px) {
+      .hero { min-height: auto; padding: 72px 0 36px; }
+      .hero-content { grid-template-columns: 1fr; padding: 40px 0 0; gap: 28px; }
+      .hero-product { width: 100%; max-width: 520px; justify-self: center; }
+      .hero-product img { height: 300px; }
+      .hero-foot { display: none; }
+      .hero:after { background: rgba(4, 18, 35, 0.84); }
+    }
+
     /* ===== MOBILE PHONES (max-width: 600px) ===== */
     @media (max-width: 600px) {
       body { font-size: 15px; }
@@ -982,21 +1052,26 @@
       .brand-logo { width: 34px; height: 34px; }
 
       .hero {
-        min-height: 600px;
-        padding-top: 68px;
-        align-items: flex-end;
+        min-height: auto;
+        padding: 68px 0 28px;
+        align-items: center;
       }
       .hero-image {
-        object-position: 65% center;
-        opacity: 0.48;
+        object-position: 70% center;
+        opacity: 0.92;
+        filter: brightness(1.10) contrast(1.04) saturate(1.06);
       }
       .hero:after {
-        background: linear-gradient(180deg, rgba(4, 18, 35, 0.75) 0%, rgba(4, 18, 35, 0.94) 50%, rgba(4, 18, 35, 0.98) 100%);
+        background: linear-gradient(180deg, rgba(4, 18, 35, 0.92), rgba(4, 18, 35, 0.8));
       }
       .hero-content {
         width: calc(100% - 32px);
-        padding: 50px 0 36px;
+        padding: 28px 0 0;
+        gap: 24px;
       }
+      .hero-product { padding: 16px; border-radius: 22px; }
+      .hero-product img { height: 240px; margin: 10px 0; }
+      .hero-product figcaption { font-size: 0.82rem; padding-top: 12px; }
       .eyebrow {
         font-size: 0.68rem;
         padding: 4px 10px;
@@ -1019,13 +1094,15 @@
       }
       .hero-actions {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 11px;
         width: 100%;
-        max-width: 320px;
+        max-width: none;
       }
       .hero-actions .button {
-        width: 100%;
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 0.8rem;
         min-height: 50px;
       }
       .hero-foot { display: none; }
@@ -1042,7 +1119,44 @@
       }
       .product-image img { padding: 16px; }
       .features { gap: 11px; margin: 20px 0; }
-      .features li { font-size: 0.94rem; }
+      .features { grid-template-columns: 1fr; }
+      .features li { font-size: 0.94rem; padding: 18px 16px; }
+      .number { font-size: 0.68rem; overflow-wrap: anywhere; }
+      .intro-grid {
+        gap: 16px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: #f7fbfd;
+      }
+      .intro-grid .lead { margin-bottom: 0; }
+      .companion-grid > div:first-child, #about > .container {
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        background: #f7fbfd;
+      }
+      .proofs { gap: 12px; margin-top: 24px; background: transparent; border: 0; }
+      .proof, .proof:last-child {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: #ffffff;
+      }
+      .impact-point {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #ffffff;
+      }
+      .contact-in {
+        padding: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .contact-actions { min-width: 0; }
+      .foot-brand { min-width: 0; }
+      .foot-info { min-width: 0; overflow-wrap: anywhere; }
 
       .app {
         max-width: 330px;
@@ -1095,6 +1209,10 @@
       .foot-info span { font-size: 0.74rem; }
       .foot-copy { font-size: 0.74rem; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1137,16 +1255,23 @@
     <section class="hero">
       <img class="hero-image" src="gestalk-community-hero.png" alt="A Gestalk wearer communicating with a group of people">
       <div class="hero-content">
-        <div class="eyebrow">
-          <img src="redfox-logo-circle.png" alt="" class="eyebrow-logo" width="18" height="18">
-          <span>Redfoxrobotics presents</span>
+        <div class="hero-message">
+          <div class="eyebrow">
+            <img src="redfox-logo-circle.png" alt="" class="eyebrow-logo" width="18" height="18">
+            <span>Redfoxrobotics presents</span>
+          </div>
+          <h1>Every gesture deserves <span>a voice.</span></h1>
+          <p class="hero-copy">Meet Gestalk, the smart glove that turns gestures into voice and text. Made for easier conversations at school, at home and in your community.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#gestalk">Meet Gestalk ↓</a>
+            <a class="button secondary" href="#contact">Request a demo ↗</a>
+          </div>
         </div>
-        <h1>Every gesture deserves <span>a voice.</span></h1>
-        <p class="hero-copy">Gestalk is a smart glove that helps deaf people communicate more easily with hearing people—in everyday conversations, at school, at home and in the community.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#gestalk">Meet Gestalk ↓</a>
-          <a class="button secondary" href="#contact">Request a demo ↗</a>
-        </div>
+        <figure class="hero-product">
+          <div class="hero-product-label">Meet Gestalk <span>Smart communication glove</span></div>
+          <img src="gestalk-product.png" alt="Gestalk smart glove showing the finger sensors, connecting wires and wrist-mounted device" width="584" height="661" fetchpriority="high" decoding="async">
+          <figcaption><strong>Your gestures. Your voice.</strong>A wearable bridge between signed gestures and everyday conversations.</figcaption>
+        </figure>
       </div>
       <div class="hero-foot">Built for clearer everyday communication.</div>
     </section>
@@ -1174,17 +1299,17 @@
         </div>
         <div class="product-grid">
           <div class="product-image reveal">
-            <img src="gestalk-product.png" alt="Gestalk electronic glove" width="540" height="514">
+            <img src="gestalk-product.png" alt="Gestalk electronic glove with finger sensors and wrist-mounted device" width="584" height="661" decoding="async">
           </div>
           <div class="product-copy reveal">
             <div class="number">GESTALK / SMART COMMUNICATION GLOVE</div>
             <h3>A small glove for more meaningful conversations.</h3>
             <p>Wear Gestalk, make a gesture, and share what you want to say more easily with the people around you.</p>
             <ul class="features">
-              <li><span class="check">✓</span><span><strong>22 Indian regional languages</strong> — audio output support for everyday conversations.</span></li>
-              <li><span class="check">✓</span><span><strong>Sign-language support</strong> — works with ISL, BSL and ASL.</span></li>
-              <li><span class="check">✓</span><span><strong>Customised signs</strong> — support can be tailored for specific sign-language needs.</span></li>
-              <li><span class="check">✓</span><span><strong>Up to one-day battery life</strong> — designed to support a full day of use.</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span><strong>22 Indian regional languages</strong>Audio output support for everyday conversations.</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span><strong>Sign-language support</strong>Works with ISL, BSL and ASL.</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span><strong>Customised signs</strong>Support tailored to your sign-language needs.</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span><strong>Up to one-day battery life</strong>Designed to support a full day of use.</span></li>
             </ul>
             <a class="button primary" href="#how">Why Gestalk matters →</a>
           </div>
@@ -1289,7 +1414,7 @@
           </div>
           <p>55+ technical awards and recognitions across project expos, hackathons and entrepreneurship conclaves.</p>
         </div>
-        <div class="awards-scroller reveal" aria-label="Redfoxrobotics achievements gallery">
+        <div class="awards-scroller reveal" role="region" tabindex="0" aria-label="Redfoxrobotics achievements gallery">
           <figure class="award-card"><img src="A1.webp" alt="Redfoxrobotics achievement 1" loading="lazy"><figcaption>Achievement 01</figcaption></figure>
           <figure class="award-card"><img src="A2.webp" alt="Redfoxrobotics achievement 2" loading="lazy"><figcaption>Achievement 02</figcaption></figure>
           <figure class="award-card"><img src="A3.webp" alt="Redfoxrobotics achievement 3" loading="lazy"><figcaption>Achievement 03</figcaption></figure>
@@ -1404,16 +1529,6 @@
 
   <!-- SCRIPT -->
   <script>
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
     // Reset awards gallery scroll on page load
     window.addEventListener('load', () => {
       const gallery = document.querySelector('.awards-scroller');
@@ -1455,8 +1570,11 @@
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navMenu.classList.contains('open')) {
           toggleMenu(false);
+          navToggle.focus();
         }
       });
+
+      window.matchMedia('(max-width: 1100px)').addEventListener('change', () => toggleMenu(false));
     }
   </script>
 </body>
