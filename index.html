@@ -515,95 +515,75 @@
       gap: 70px;
       align-items: center;
     }
+    .app-features { display: grid; gap: 14px; margin: 28px 0; }
+    .app-feature {
+      display: flex; gap: 16px; align-items: flex-start; padding: 20px;
+      border: 1px solid var(--line); border-radius: 18px; background: #f8fbfd;
+    }
+    .app-icon {
+      flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 13px; background: #dff7fc; color: #087894;
+    }
+    .app-icon svg { width: 22px; height: 22px; }
+    .app-feature h3 { font-size: 1.02rem; letter-spacing: -0.025em; margin: 0 0 5px; }
+    .app-feature p { color: #607389; font-size: 0.9rem; line-height: 1.6; margin: 0; }
+    .app-stage {
+      margin: 0; padding: 32px 24px 22px; border: 1px solid #d6edf3;
+      border-radius: 36px; background: radial-gradient(circle at 50% 30%, #ffffff, #dff6fc 65%, #ecf0ff);
+    }
     .app {
-      width: min(385px, 100%);
-      margin: auto;
-      padding: 30px 20px;
-      min-height: 490px;
-      border: 8px solid #132234;
-      border-radius: 36px;
-      background: linear-gradient(150deg, #e6fbff, #ffffff 50%, #f4f5ff);
-      box-shadow: 0 24px 56px rgba(7, 50, 86, 0.18);
+      width: min(350px, 100%); margin: auto; padding: 0; overflow: hidden;
+      border: 8px solid #132234; border-radius: 42px; background: #f2f6fa;
+      box-shadow: 0 22px 46px rgba(7, 50, 86, 0.22);
+      font-size: 13px; line-height: 1.5;
     }
-    .app-top {
-      display: flex;
-      justify-content: space-between;
-      color: #6c8397;
-      font-size: 0.74rem;
-      margin-bottom: 28px;
-      font-weight: 600;
-    }
-    .app-name {
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: #132b47;
-      display: flex;
-      align-items: center;
-    }
-    .app-name b {
-      background: var(--cyan);
-      display: inline-grid;
-      place-items: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      margin-right: 10px;
-      color: #062038;
-    }
-    .tabs {
-      display: flex;
-      gap: 6px;
-      margin: 22px 0 16px;
-    }
-    .tabs span {
-      flex: 1;
-      padding: 7px;
-      text-align: center;
-      border-radius: 8px;
-      background: #dbeaf2;
-      color: #557087;
-      font-size: 0.68rem;
-      font-weight: 700;
-    }
-    .tabs span:first-child {
-      background: #0aa9d0;
-      color: white;
-    }
-    .detected, .message {
-      border-radius: var(--radius-md);
-      padding: 20px;
-      text-align: center;
-    }
-    .detected {
-      background: white;
-      border: 1px solid #c6e5ef;
-    }
-    .small-label {
-      font: 600 0.64rem "DM Mono", monospace;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #718aa0;
-    }
-    .hand {
-      font-size: 3.8rem;
-      margin: 8px 0;
-    }
-    .message {
-      margin-top: 15px;
-      text-align: left;
-      background: #073452;
-      color: white;
-    }
-    .message h4 {
-      font-size: 1.7rem;
-      margin: 8px 0 2px;
-      color: #ffffff;
-    }
-    .message p {
-      color: #acd4e7;
-      margin: 0;
-      font-size: 0.82rem;
-    }
+    .app-header { background: #09243b; color: #ffffff; padding: 12px 18px 20px; }
+    .app-status { display: flex; align-items: center; justify-content: space-between; font-size: 0.65rem; font-weight: 700; }
+    .app-camera { width: 76px; height: 20px; border-radius: 20px; background: #031423; }
+    .app-status-icons { display: flex; align-items: center; gap: 5px; }
+    .app-status-icons svg { width: 16px; height: 12px; }
+    .app-brand { display: flex; align-items: center; gap: 10px; margin-top: 18px; }
+    .app-brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--cyan); color: #072239; font-size: 1.25rem; font-weight: 800; }
+    .app-brand strong { font-size: 1.12rem; letter-spacing: -0.035em; }
+    .app-brand small { display: block; color: #a9cddd; font-size: 0.65rem; }
+    .app-preview-tag { margin-left: auto; color: #bdebf5; font-size: 0.59rem; border: 1px solid #466274; border-radius: 20px; padding: 4px 8px; }
+    .app-body { padding: 14px; display: grid; gap: 12px; }
+    .app-device { display: flex; align-items: center; gap: 10px; background: white; border: 1px solid #dce7ef; border-radius: 16px; padding: 12px; }
+    .app-device img { width: 36px; height: 48px; object-fit: contain; flex-shrink: 0; }
+    .app-device strong { font-size: 0.78rem; display: block; }
+    .app-connected { display: flex; align-items: center; gap: 5px; color: #137653; font-size: 0.65rem; margin-top: 3px; }
+    .app-connected::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #27b781; }
+    .app-battery { margin-left: auto; text-align: right; color: #52718a; font-size: 0.6rem; }
+    .app-battery strong { color: #123d54; }
+    .app-conversation-title { display: flex; align-items: center; justify-content: space-between; padding: 3px 2px 0; }
+    .app-conversation-title strong { font-size: 0.88rem; }
+    .app-conversation-title span { font-size: 0.6rem; color: #667e92; }
+    .app-gesture { padding: 14px; border-radius: 18px; background: #ffffff; border: 1px solid #dce7ef; }
+    .app-label { display: flex; align-items: center; gap: 6px; color: #607b90; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.02em; }
+    .app-label svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .app-recognised { margin-left: auto; color: #147653; font-size: 0.57rem; background: #e8f8f0; padding: 3px 6px; border-radius: 20px; }
+    .app-gesture h4 { font-size: 1.2rem; line-height: 1.35; letter-spacing: -0.03em; margin: 12px 0; color: #143249; }
+    .app-output-tags { display: flex; gap: 6px; margin-bottom: 12px; }
+    .app-output-tags span { color: #126c88; background: #e7f8fc; border: 1px solid #d5edf4; padding: 4px 9px; border-radius: 8px; font-size: 0.61rem; font-weight: 700; }
+    .app-audio { display: flex; align-items: center; gap: 10px; background: #092d46; color: white; border-radius: 13px; padding: 11px; }
+    .app-speaker { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #35cff3; color: #072b45; flex-shrink: 0; }
+    .app-speaker svg { width: 17px; height: 17px; }
+    .app-audio strong { display: block; font-size: 0.68rem; }
+    .app-audio small { color: #a4c7db; font-size: 0.56rem; }
+    .app-wave { display: flex; align-items: center; justify-content: flex-end; gap: 3px; height: 30px; margin-left: auto; color: #35cff3; }
+    .app-wave i { width: 3px; height: var(--bar); background: currentColor; border-radius: 3px; }
+    .app-picture { display: flex; align-items: center; gap: 12px; margin-top: 10px; padding: 10px; border-radius: 12px; border: 1px solid #e0ebf3; background: #f7fbfe; }
+    .app-picture-art { display: grid; place-items: center; width: 62px; height: 58px; background: #dff4ff; border-radius: 10px; flex-shrink: 0; }
+    .app-picture-art svg { width: 45px; height: 50px; }
+    .app-picture strong { display: block; font-size: 0.8rem; color: #164665; }
+    .app-picture small { color: #678297; font-size: 0.6rem; }
+    .app-reply { padding: 14px; border: 1px solid #bde5ee; background: #e3f6fb; border-radius: 18px 18px 18px 5px; }
+    .app-reply .app-label { color: #1d758c; }
+    .app-reply p { margin: 8px 0 4px; font-size: 0.91rem; font-weight: 700; color: #15374e; }
+    .app-reply small { color: #567c8d; font-size: 0.6rem; }
+    .app-home-indicator { width: 95px; height: 4px; background: #183249; margin: 3px auto 12px; border-radius: 10px; }
+    .app-stage figcaption { margin: 18px auto 0; color: #5b768a; font-size: 0.73rem; text-align: center; line-height: 1.6; }
+    .app-preview-link { display: block; margin-top: 6px; color: #087894; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
     /* ===== COMMUNITY STORY ===== */
     .impact-story { padding: 96px 0; background: #ffffff; }
@@ -1087,16 +1067,16 @@
       .foot-info { min-width: 0; overflow-wrap: anywhere; }
 
       .app {
-        max-width: 330px;
-        min-height: 420px;
         border-width: 6px;
-        border-radius: 28px;
-        padding: 22px 14px;
+        border-radius: 36px;
       }
-      .app-top { margin-bottom: 18px; }
-      .hand { font-size: 3.2rem; }
-      .message { padding: 16px; }
-      .message h4 { font-size: 1.5rem; }
+      .app-stage { padding: 22px 12px 18px; border-radius: 26px; }
+      .app-header { padding: 10px 12px 18px; }
+      .app-body { padding: 10px; gap: 10px; }
+      .app-feature { padding: 16px; gap: 12px; background: #ffffff; }
+      .app-preview-tag { padding: 3px 6px; }
+      .app-audio { gap: 7px; padding: 9px; }
+      .app-wave { gap: 2px; }
 
       .impact-story { padding: 58px 0; }
       .impact-card { border-radius: var(--radius-md); }
@@ -1267,36 +1247,74 @@
 
     <!-- THE COMPANION -->
     <section class="companion" id="companion">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
+        <symbol id="app-bluetooth" viewBox="0 0 24 24"><path d="m7 7 10 10-5 4V3l5 4L7 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="app-chat" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 1-8 8H5l-3 3V11a9 9 0 1 1 18 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 9h8M7 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+        <symbol id="app-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="app-speaker" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4ZM17 8a6 6 0 0 1 0 8M20 5a10 10 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+        <symbol id="app-hand" viewBox="0 0 24 24"><path d="M7 12V6a1.5 1.5 0 0 1 3 0v5-7a1.5 1.5 0 0 1 3 0v7-6a1.5 1.5 0 0 1 3 0v7-4a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-10 4l-5-5a1.5 1.5 0 0 1 2-2l3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+      </svg>
       <div class="container companion-grid">
         <div class="reveal">
-          <p class="kicker">The Gestalk companion</p>
-          <h2>Support that stays simple.</h2>
-          <p class="lead" style="font-size:1.02rem">Gestalk is made to keep communication easy to follow, helping people feel more included in the conversations that matter.</p>
-          <a class="button primary" href="#contact">Ask about Gestalk ↗</a>
-        </div>
-        <div class="reveal">
-          <div class="app">
-            <div class="app-top">
-              <span>9:41</span>
-              <span>● ● ●</span>
-            </div>
-            <div class="app-name"><b>G</b>Gestalk</div>
-            <div class="tabs">
-              <span>Connect</span>
-              <span>Share</span>
-              <span>Support</span>
-            </div>
-            <div class="detected">
-              <div class="small-label">Your message</div>
-              <div class="hand">👋</div>
-            </div>
-            <div class="message">
-              <div class="small-label">Let’s connect</div>
-              <h4>Hello!</h4>
-              <p>Everyday communication, made easier.</p>
-            </div>
+          <p class="kicker">The Gestalk mobile app</p>
+          <h2>One conversation.<br>More ways to connect.</h2>
+          <p class="lead" style="font-size:1.02rem">Your glove and phone work together to help you express yourself—and follow the reply. Connect, gesture, and keep the conversation going.</p>
+          <div class="app-features">
+            <article class="app-feature">
+              <span class="app-icon"><svg aria-hidden="true"><use href="#app-bluetooth"/></svg></span>
+              <div><h3>Connect your Gestalk glove</h3><p>Pair your device with the app over Bluetooth and see its connection and battery status in one place.</p></div>
+            </article>
+            <article class="app-feature">
+              <span class="app-icon"><svg aria-hidden="true"><use href="#app-chat"/></svg></span>
+              <div><h3>Gestures into voice, text &amp; images</h3><p>Share your message as spoken words, readable text and a visual cue that makes the meaning easier to follow.</p></div>
+            </article>
+            <article class="app-feature">
+              <span class="app-icon"><svg aria-hidden="true"><use href="#app-mic"/></svg></span>
+              <div><h3>Speech back into text</h3><p>Read the other person's spoken reply on your phone, so communication flows in both directions.</p></div>
+            </article>
           </div>
+          <a class="button primary" href="#contact">See Gestalk in action ↗</a>
         </div>
+        <figure class="app-stage reveal">
+          <div class="app">
+            <div class="app-header">
+              <div class="app-status">
+                <span>9:41</span><span class="app-camera" aria-hidden="true"></span>
+                <span class="app-status-icons" aria-hidden="true"><svg viewBox="0 0 20 14"><path d="M2 12V9m4 3V6m4 6V3m4 9V1" stroke="currentColor" stroke-width="2"/></svg><svg viewBox="0 0 22 12"><rect x="1" y="1" width="17" height="10" rx="2" fill="none" stroke="currentColor"/><rect x="3" y="3" width="12" height="6" rx="1" fill="currentColor"/><path d="M20 4v4" stroke="currentColor" stroke-width="2"/></svg></span>
+              </div>
+              <div class="app-brand"><span class="app-brand-mark">G</span><div><strong>Gestalk</strong><small>Your everyday conversation companion</small></div><span class="app-preview-tag">PREVIEW</span></div>
+            </div>
+            <div class="app-body">
+              <div class="app-device">
+                <img src="gestalk-product.png" alt="" width="36" height="48" loading="lazy">
+                <div><strong>Gestalk smart glove</strong><span class="app-connected">Connected via Bluetooth</span></div>
+                <div class="app-battery"><strong>82%</strong>Battery</div>
+              </div>
+              <div class="app-conversation-title"><strong>Let's talk</strong><span>Two-way conversation</span></div>
+              <div class="app-gesture">
+                <div class="app-label"><svg aria-hidden="true"><use href="#app-hand"/></svg>YOUR GESTURE<span class="app-recognised">Recognised ✓</span></div>
+                <h4>I would like some water.</h4>
+                <div class="app-output-tags"><span>Voice</span><span>Text</span><span>Image</span></div>
+                <div class="app-audio">
+                  <span class="app-speaker"><svg aria-hidden="true"><use href="#app-speaker"/></svg></span>
+                  <div><strong>Voice output</strong><small>English · gesture translation</small></div>
+                  <span class="app-wave" aria-hidden="true"><i style="--bar:8px"></i><i style="--bar:15px"></i><i style="--bar:24px"></i><i style="--bar:12px"></i><i style="--bar:27px"></i><i style="--bar:18px"></i><i style="--bar:9px"></i><i style="--bar:21px"></i><i style="--bar:12px"></i></span>
+                </div>
+                <div class="app-picture">
+                  <span class="app-picture-art"><svg viewBox="0 0 60 68" role="img" aria-label="Illustration of a glass of water"><ellipse cx="30" cy="61" rx="19" ry="3" fill="#aad9ed"/><path d="m13 13 5 46h24l5-46Z" fill="#ffffff" stroke="#74b4d4" stroke-width="2"/><path d="m16 30 3 26h22l3-26c-10 5-17-5-28 0Z" fill="#64c9ee"/><path d="m20 18 3 32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/><ellipse cx="30" cy="13" rx="17" ry="4" fill="#e4f6ff" stroke="#74b4d4" stroke-width="2"/></svg></span>
+                  <div><small>IMAGE OUTPUT</small><strong>Water</strong><small>A visual cue for your message</small></div>
+                </div>
+              </div>
+              <div class="app-reply">
+                <div class="app-label"><svg aria-hidden="true"><use href="#app-mic"/></svg>SPOKEN REPLY → TEXT</div>
+                <p>“Of course. Here you go.”</p>
+                <small>Their voice, ready for you to read.</small>
+              </div>
+            </div>
+            <div class="app-home-indicator" aria-hidden="true"></div>
+          </div>
+          <figcaption>Illustrative app preview · an example conversation<a class="app-preview-link" href="gestalk-app-preview.png" target="_blank" rel="noopener">Open preview image ↗</a></figcaption>
+        </figure>
       </div>
     </section>
 
