@@ -716,32 +716,6 @@
       font-size: 1.15rem;
     }
 
-    /* ===== PRODUCT DELIVERY ===== */
-    .delivery { background: #ffffff; }
-    .delivery-card {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 0;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: #f7fbfd;
-      overflow: hidden;
-      box-shadow: 0 12px 32px rgba(9, 38, 66, 0.04);
-    }
-    .delivery-card img {
-      height: 100%;
-      min-height: 420px;
-      width: 100%;
-      object-fit: cover;
-    }
-    .delivery-copy {
-      padding: 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .delivery-copy p { color: var(--muted); line-height: 1.6; }
-
     /* ===== BACKED BY KSUM ===== */
     .backed {
       padding: 86px 0;
@@ -778,7 +752,7 @@
     /* ===== ABOUT & PROOFS ===== */
     .proofs {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       margin-top: 40px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -933,7 +907,7 @@
         font-size: 0.96rem;
       }
 
-      .intro-grid, .product-grid, .companion-grid, .delivery-card, .impact-card {
+      .intro-grid, .product-grid, .companion-grid, .impact-card {
         grid-template-columns: 1fr;
         gap: 36px;
       }
@@ -948,13 +922,13 @@
         grid-template-columns: 1fr;
         gap: 16px;
       }
-      .delivery-card img, .impact-card img {
+      .impact-card img {
         min-height: 0;
         height: auto;
         aspect-ratio: 16 / 10;
         max-height: 380px;
       }
-      .delivery-copy, .impact-copy {
+      .impact-copy {
         padding: 34px 26px;
       }
       .backed-card {
@@ -1125,8 +1099,8 @@
       .message h4 { font-size: 1.5rem; }
 
       .impact-story { padding: 58px 0; }
-      .impact-card, .delivery-card { border-radius: var(--radius-md); }
-      .impact-copy, .delivery-copy { padding: 26px 18px; }
+      .impact-card { border-radius: var(--radius-md); }
+      .impact-copy { padding: 26px 18px; }
       .impact-point { font-size: 0.92rem; }
 
       .award-card {
@@ -1186,9 +1160,8 @@
           <a href="#companion">Companion</a>
           <a href="#story">Community</a>
           <a href="#achievements">Achievements</a>
-          <a href="#delivery">Delivery</a>
-          <a href="#backed">Backed By</a>
           <a href="#about">About</a>
+          <a href="#backed">Backed By</a>
         </nav>
         <a class="nav-cta mobile-cta" href="#contact">Talk to us →</a>
       </div>
@@ -1387,46 +1360,12 @@
       </div>
     </section>
 
-    <!-- DELIVERY -->
-    <section class="delivery" id="delivery">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker">Real-world impact</p>
-            <h2>Product delivery</h2>
-          </div>
-          <p>A meaningful milestone for Gestalk and the people it was built to support.</p>
-        </div>
-        <article class="delivery-card reveal">
-          <img src="Productdeliverd2.webp" alt="Gestalk delivery at Government Deaf School Jagathy" width="600" height="420">
-          <div class="delivery-copy">
-            <div class="number">31 MARCH 2026</div>
-            <h3>Gestalk handover</h3>
-            <p>Redfoxrobotics Pvt. Ltd. successfully delivered Gestalk—the smart communication glove—to the Government Deaf School, Jagathy, Trivandrum.</p>
-            <p>This delivery marks a proud step in bringing more accessible communication support to people who need it most.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- BACKED BY KSUM -->
-    <section class="backed" id="backed">
-      <div class="container reveal">
-        <p class="kicker">Our ecosystem</p>
-        <h2>Backed by Kerala Startup Mission</h2>
-        <div class="backed-card">
-          <img src="ksum-logo.png" alt="Kerala Startup Mission logo" width="220" height="85">
-          <p><strong>Redfoxrobotics Pvt. Ltd.</strong> is supported by Kerala Startup Mission, helping us build accessible technology with real-world impact.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ABOUT -->
     <section class="intro" id="about">
       <div class="container reveal">
         <p class="kicker">Built in Kerala, for real-world impact</p>
         <h2>Purpose-led products. Practical progress.</h2>
-        <p class="lead">Redfoxrobotics Pvt. Ltd. is incubated at TBI, Government Engineering College Barton Hill, Trivandrum, with support from Kerala Startup Mission.</p>
+        <p class="lead">Redfoxrobotics Pvt. Ltd. is incubated at TBI, Government Engineering College Barton Hill, Trivandrum.</p>
         <div class="proofs">
           <div class="proof">
             <strong>55+</strong>
@@ -1435,10 +1374,6 @@
           <div class="proof">
             <strong>1</strong>
             <span>smart glove for easier communication</span>
-          </div>
-          <div class="proof">
-            <strong>2026</strong>
-            <span>Gestalk delivered to Government Deaf School, Jagathy</span>
           </div>
         </div>
       </div>
@@ -1455,6 +1390,17 @@
         <div class="contact-actions">
           <a class="button primary" href="https://wa.me/916282157697" target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
           <a class="button secondary" href="mailto:StartUp.mailrobotics@gmail.com">Email Redfoxrobotics ↗</a>
+        </div>
+      </div>
+    </section>
+    <!-- BACKED BY KSUM -->
+    <section class="backed" id="backed">
+      <div class="container reveal">
+        <p class="kicker">Our ecosystem</p>
+        <h2>Backed by Kerala Startup Mission</h2>
+        <div class="backed-card">
+          <img src="ksum-logo.png" alt="Kerala Startup Mission logo" width="220" height="85">
+          <p><strong>Redfoxrobotics Pvt. Ltd.</strong> is supported by Kerala Startup Mission, helping us build accessible technology with real-world impact.</p>
         </div>
       </div>
     </section>
