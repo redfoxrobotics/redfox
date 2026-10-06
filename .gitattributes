@@ -1,0 +1,4 @@
+# Keep browser integrity hashes identical on Windows and GitHub Pages.
+*.js text eol=lf
+*.html text eol=lf
+*.css text eol=lf
