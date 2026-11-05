@@ -139,3 +139,64 @@ if (navToggle && navMenu) {
     }
   });
 }
+
+// Gestalk video demonstration audio toggle and viewport autoplay
+(function initGestalkVideo() {
+  const video = document.getElementById('gestalkVideo');
+  const soundBtn = document.getElementById('videoSoundToggle');
+  const videoCard = document.querySelector('.video-card');
+  if (!video) return;
+
+  if (soundBtn) {
+    soundBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      updateSoundButton();
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    });
+
+    function updateSoundButton() {
+      if (video.muted) {
+        soundBtn.textContent = 'Tap for sound 🔈';
+        soundBtn.setAttribute('aria-pressed', 'false');
+      } else {
+        soundBtn.textContent = 'Sound on 🔊';
+        soundBtn.setAttribute('aria-pressed', 'true');
+      }
+    }
+
+    video.addEventListener('volumechange', updateSoundButton);
+  }
+
+  let userPaused = false;
+  video.addEventListener('pause', () => {
+    videoCard?.classList.add('video-paused');
+    const rect = video.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) userPaused = true;
+  });
+  video.addEventListener('play', () => {
+    videoCard?.classList.remove('video-paused');
+    userPaused = false;
+  });
+
+  if ('IntersectionObserver' in window && !motionPreference.matches) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!userPaused && video.paused) {
+            video.play().catch(() => {});
+          }
+        } else {
+          if (!video.paused) {
+            video.pause();
+          }
+        }
+      });
+    }, { threshold: 0.2 });
+    videoObserver.observe(video);
+  }
+})();
+

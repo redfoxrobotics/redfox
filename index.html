@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-QAytHS3IwNgujyfFI/C6X++A2wH9R0OxXNnVU4E0+QR59CKQBXpstzmKm7dEnDm0'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-bSEF/ICzV/cNhWvGna2RhT0gJzuaja6saCxcpsr2Cs6Q6hbAk7/BG99V0Du8TVZW'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Redfoxrobotics presents Gestalk - smart communication glove turning hand gestures into voice and text for inclusive communication.">
@@ -26,6 +26,7 @@
       <div class="nav-menu" id="navMenu">
         <nav class="links" aria-label="Main Navigation">
           <a href="#gestalk">Gestalk</a>
+          <a href="#demo">Demo video</a>
           <a href="#how">How it works</a>
           <a href="#companion">Companion</a>
           <a href="#achievements">Achievements</a>
@@ -61,7 +62,7 @@
           <p class="hero-copy">Your hands have something to say. Gestalk turns supported hand gestures into voice and text, helping deaf and hearing people connect in everyday conversations.</p>
           <div class="hero-actions">
             <a class="button primary" href="#gestalk">Meet Gestalk ↓</a>
-            <a class="button secondary" href="#contact">Request a demo ↗</a>
+            <a class="button secondary" href="#demo">Watch demo video ▶</a>
           </div>
           <div class="hero-tags"><span>Gesture to voice</span><span>Readable text</span><span>Companion app</span></div>
         </div>
@@ -104,7 +105,73 @@
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Customised signs</strong>Support tailored to your sign-language needs.</span></li>
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Up to one-day battery life</strong>Battery life varies with usage and settings.</span></li>
             </ul>
-            <a class="button primary" href="#how">Why Gestalk matters →</a>
+            <div class="product-actions">
+              <a class="button primary" href="#demo">Watch video demo ▶</a>
+              <a class="button secondary" href="#how">Why Gestalk matters →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO DEMONSTRATION -->
+    <section class="demo-showcase" id="demo">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="kicker">Gestalk in motion</p>
+            <h2>Watch how every gesture speaks.</h2>
+          </div>
+          <p>See the Gestalk smart glove turn real-world hand gestures into clear speech and text in real time.</p>
+        </div>
+        <div class="demo-showcase-grid reveal">
+          <figure class="video-stage">
+            <div class="video-card">
+              <div class="video-notch" aria-hidden="true"></div>
+              <video id="gestalkVideo" class="gestalk-video-player" autoplay playsinline loop muted controls preload="auto">
+                <source src="gestalk-video.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <div class="video-play-overlay" aria-hidden="true">
+                <div class="video-play-circle">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                </div>
+              </div>
+              <button type="button" class="video-sound-pill" id="videoSoundToggle" aria-label="Toggle video sound" aria-pressed="false">Tap for sound 🔈</button>
+            </div>
+            <figcaption class="video-caption">Live demonstration · Gestalk smart glove translating gestures to voice</figcaption>
+          </figure>
+          <div class="video-feature-list">
+            <div class="number">REAL-WORLD DEMONSTRATION</div>
+            <h3>See how intuitive everyday communication becomes.</h3>
+            <p>Gestalk bridges the communication gap by translating hand gestures into audible speech and on-screen text instantly, enabling natural two-way conversations.</p>
+            <div class="video-features">
+              <article class="video-feature-item">
+                <span class="video-feature-num" aria-hidden="true">01</span>
+                <div>
+                  <h3>Real-time gesture sensing</h3>
+                  <p>Flexible sensors and high-precision tracking capture subtle finger movements and hand orientations in milliseconds.</p>
+                </div>
+              </article>
+              <article class="video-feature-item">
+                <span class="video-feature-num" aria-hidden="true">02</span>
+                <div>
+                  <h3>Instant voice translation</h3>
+                  <p>Hand signs are converted into natural spoken voice and readable text across supported languages.</p>
+                </div>
+              </article>
+              <article class="video-feature-item">
+                <span class="video-feature-num" aria-hidden="true">03</span>
+                <div>
+                  <h3>Two-way seamless interaction</h3>
+                  <p>Spoken replies from friends and family are transcribed directly into text on the companion app.</p>
+                </div>
+              </article>
+            </div>
+            <div class="video-actions">
+              <a class="button primary" href="#contact">Request a live demo ↗</a>
+              <a class="button secondary" href="#how">How it works ↓</a>
+            </div>
           </div>
         </div>
       </div>
@@ -164,7 +231,7 @@
               <div><h3>Speech back into text</h3><p>Read the other person's spoken reply on your phone, so communication flows in both directions.</p></div>
             </article>
           </div>
-          <a class="button primary" href="#contact">See Gestalk in action ↗</a>
+          <a class="button primary" href="#demo">Watch Gestalk in action ▶</a>
         </div>
         <figure class="app-stage reveal">
           <div class="demo-heading"><span class="kicker">A conversation, illustrated</span><p>Choose a message to explore the app preview.</p></div>
@@ -350,7 +417,7 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script src="assets/js/site.js" integrity="sha384-QAytHS3IwNgujyfFI/C6X++A2wH9R0OxXNnVU4E0+QR59CKQBXpstzmKm7dEnDm0" defer></script>
+  <script src="assets/js/site.js" integrity="sha384-bSEF/ICzV/cNhWvGna2RhT0gJzuaja6saCxcpsr2Cs6Q6hbAk7/BG99V0Du8TVZW" defer></script>
 </body>
 </html>
 
