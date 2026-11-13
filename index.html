@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-7DXUPCg74mYxNgppDCLoqrpyQdzJOE2G+R/zyNrCuTBvkaG6n8jb/wC7LJ+VkIeV'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-02oBN59KOgOOfk5yCLn2aHMWHiW/xt1GTZVcIBRXplCToCSi/8mWVgaqv7egP3rw'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Redfoxrobotics presents Gestalk - smart communication glove turning hand gestures into voice and text for inclusive communication.">
@@ -106,7 +106,7 @@
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Up to one-day battery life</strong>Battery life varies with usage and settings.</span></li>
             </ul>
             <div class="product-actions">
-              <a class="button primary" href="#demo">Watch video demo ▶</a>
+              <a class="button primary" href="#demo">Watch Gestalk Video ▶</a>
               <a class="button secondary" href="#how">Why Gestalk matters →</a>
             </div>
           </div>
@@ -114,15 +114,15 @@
       </div>
     </section>
 
-    <!-- 2-MINUTE PRODUCT FILM & DEMONSTRATION SHOWCASE -->
+    <!-- GESTALK VIDEO & DEMONSTRATION SHOWCASE -->
     <section class="demo-showcase" id="demo">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="kicker">Problem &amp; Solution Film</p>
+            <p class="kicker">Gestalk Video</p>
             <h2>Breaking barriers. Connecting people.</h2>
           </div>
-          <p>Watch the 2-minute film exploring the communication challenges faced by deaf and non-verbal communities, and how the Gestalk AI smart glove bridges the gap in real time.</p>
+          <p>See how the Gestalk AI smart glove bridges communication gaps, translating hand gestures into clear speech and text in real time.</p>
         </div>
 
         <div class="demo-showcase-content reveal">
@@ -130,7 +130,7 @@
           <div class="video-switcher" role="tablist" aria-label="Choose demonstration video">
             <button type="button" class="video-mode-pill active" id="pillFilm" role="tab" aria-selected="true" data-video="film">
               <span class="pill-dot" aria-hidden="true"></span>
-              <span class="pill-title">Problem &amp; Solution Film</span>
+              <span class="pill-title">Gestalk Video</span>
               <span class="pill-badge">2:00 min · 1080p</span>
             </button>
             <button type="button" class="video-mode-pill" id="pillDemo" role="tab" aria-selected="false" data-video="demo">
@@ -146,9 +146,8 @@
               <div class="video-theater-bar">
                 <div class="theater-bar-left">
                   <span class="theater-status-dot" aria-hidden="true"></span>
-                  <span class="theater-status-label" id="videoStatusLabel">Official Product Film</span>
+                  <span class="theater-status-label" id="videoStatusLabel">Gestalk Video</span>
                 </div>
-                <div class="theater-bar-center" id="videoChapterBadge">0:00 · The Challenge</div>
                 <div class="theater-bar-right">
                   <span class="theater-badge-hd">Full HD</span>
                   <span class="theater-badge-dur" id="videoDurationLabel">2:00</span>
@@ -165,67 +164,33 @@
                     <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                   </div>
                 </div>
-                <button type="button" class="video-sound-pill" id="videoSoundToggle" aria-label="Toggle video sound" aria-pressed="false">Tap for sound 🔈</button>
+                <div class="video-overlay-actions">
+                  <button type="button" class="video-icon-btn" id="videoSoundToggle" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false">
+                    <svg class="icon-sound-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <line x1="23" y1="9" x2="17" y2="15"></line>
+                      <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                    <svg class="icon-sound-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                  </button>
+                  <button type="button" class="video-icon-btn" id="videoFullscreenToggle" aria-label="Enter fullscreen" title="Enter fullscreen" aria-pressed="false">
+                    <svg class="icon-fullscreen-enter" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                    <svg class="icon-fullscreen-exit" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M4 14h6m0 0v6m0-6-7 7m17-11h-6m0 0V4m0 6 7-7m-7 17v-6m0 0h6m-6 0 7 7M10 4v6m0 0H4m6 0L3 3"></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
             <figcaption class="video-caption" id="videoCaption">
-              Official 2-Minute Product Film · Problem context, AI wearable breakthrough, and real-world impact by Redfoxrobotics
+              Gestalk Video · Problem context, AI wearable breakthrough, and real-world impact by Redfoxrobotics
             </figcaption>
           </figure>
-
-          <!-- Interactive Story & Chapter Milestones -->
-          <div class="video-story-section" id="filmChapters">
-            <div class="video-story-heading">
-              <span class="number">FILM CHAPTERS &amp; CORE TAKEAWAYS</span>
-              <h3>Explore the 2-minute story breakdown</h3>
-              <p>Click any milestone below to jump directly to that chapter in the film.</p>
-            </div>
-            <div class="video-story-grid" role="region" aria-label="Film chapter milestones">
-              <button type="button" class="story-chapter-card active" data-seek="0">
-                <div class="chapter-card-top">
-                  <span class="chapter-num">01</span>
-                  <span class="chapter-time">0:00</span>
-                </div>
-                <span class="chapter-tag">THE PROBLEM</span>
-                <h4>Everyday Barriers</h4>
-                <p>Millions of deaf &amp; non-verbal individuals struggle daily to express needs, thoughts, and feelings.</p>
-                <span class="chapter-jump-hint">Jump to 0:00 →</span>
-              </button>
-
-              <button type="button" class="story-chapter-card" data-seek="28">
-                <div class="chapter-card-top">
-                  <span class="chapter-num">02</span>
-                  <span class="chapter-time">0:28</span>
-                </div>
-                <span class="chapter-tag">THE INNOVATION</span>
-                <h4>Gestalk AI Smart Glove</h4>
-                <p>Wearable finger sensors and wrist intelligence capture subtle hand motions with millisecond latency.</p>
-                <span class="chapter-jump-hint">Jump to 0:28 →</span>
-              </button>
-
-              <button type="button" class="story-chapter-card" data-seek="52">
-                <div class="chapter-card-top">
-                  <span class="chapter-num">03</span>
-                  <span class="chapter-time">0:52</span>
-                </div>
-                <span class="chapter-tag">THE SOLUTION</span>
-                <h4>Threefold Output</h4>
-                <p>Instant translation to natural spoken voice in 12 major regional languages, live subtitles, and visual cards.</p>
-                <span class="chapter-jump-hint">Jump to 0:52 →</span>
-              </button>
-
-              <button type="button" class="story-chapter-card" data-seek="86">
-                <div class="chapter-card-top">
-                  <span class="chapter-num">04</span>
-                  <span class="chapter-time">1:26</span>
-                </div>
-                <span class="chapter-tag">DAILY LIFE</span>
-                <h4>Effortless Daily Wear</h4>
-                <p>Ergonomic lightweight fit with all-day battery life, zero wrist fatigue, and seamless app connectivity.</p>
-                <span class="chapter-jump-hint">Jump to 1:26 →</span>
-              </button>
-            </div>
-          </div>
 
           <div class="video-showcase-actions">
             <a class="button primary" href="#contact">Request a live demo ↗</a>
@@ -475,7 +440,7 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script src="assets/js/site.js" integrity="sha384-7DXUPCg74mYxNgppDCLoqrpyQdzJOE2G+R/zyNrCuTBvkaG6n8jb/wC7LJ+VkIeV" defer></script>
+  <script src="assets/js/site.js" integrity="sha384-02oBN59KOgOOfk5yCLn2aHMWHiW/xt1GTZVcIBRXplCToCSi/8mWVgaqv7egP3rw" defer></script>
 </body>
 </html>
 
