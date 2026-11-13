@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-bSEF/ICzV/cNhWvGna2RhT0gJzuaja6saCxcpsr2Cs6Q6hbAk7/BG99V0Du8TVZW'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-7DXUPCg74mYxNgppDCLoqrpyQdzJOE2G+R/zyNrCuTBvkaG6n8jb/wC7LJ+VkIeV'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Redfoxrobotics presents Gestalk - smart communication glove turning hand gestures into voice and text for inclusive communication.">
@@ -100,7 +100,7 @@
             <h3>A small glove for more meaningful conversations.</h3>
             <p>Gestalk brings finger sensors and a wrist-mounted device together in one wearable. Use supported gestures to share a message through the companion app, with voice and text for the person you are speaking with.</p>
             <ul class="features">
-              <li><span class="check" aria-hidden="true">✓</span><span><strong>22 Indian regional languages</strong>Audio output support for everyday conversations.</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span><strong>12 major Indian regional languages</strong>Audio output support for everyday conversations.</span></li>
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Sign-language support</strong>Support for ISL, BSL and ASL signs. Ask us about the available gesture library.</span></li>
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Customised signs</strong>Support tailored to your sign-language needs.</span></li>
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Up to one-day battery life</strong>Battery life varies with usage and settings.</span></li>
@@ -114,64 +114,122 @@
       </div>
     </section>
 
-    <!-- VIDEO DEMONSTRATION -->
+    <!-- 2-MINUTE PRODUCT FILM & DEMONSTRATION SHOWCASE -->
     <section class="demo-showcase" id="demo">
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="kicker">Gestalk in motion</p>
-            <h2>Watch how every gesture speaks.</h2>
+            <p class="kicker">Problem &amp; Solution Film</p>
+            <h2>Breaking barriers. Connecting people.</h2>
           </div>
-          <p>See the Gestalk smart glove turn real-world hand gestures into clear speech and text in real time.</p>
+          <p>Watch the 2-minute film exploring the communication challenges faced by deaf and non-verbal communities, and how the Gestalk AI smart glove bridges the gap in real time.</p>
         </div>
-        <div class="demo-showcase-grid reveal">
-          <figure class="video-stage">
-            <div class="video-card">
-              <div class="video-notch" aria-hidden="true"></div>
-              <video id="gestalkVideo" class="gestalk-video-player" autoplay playsinline loop muted controls preload="auto">
-                <source src="gestalk-video.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
-              <div class="video-play-overlay" aria-hidden="true">
-                <div class="video-play-circle">
-                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+
+        <div class="demo-showcase-content reveal">
+          <!-- Video Selection Switcher -->
+          <div class="video-switcher" role="tablist" aria-label="Choose demonstration video">
+            <button type="button" class="video-mode-pill active" id="pillFilm" role="tab" aria-selected="true" data-video="film">
+              <span class="pill-dot" aria-hidden="true"></span>
+              <span class="pill-title">Problem &amp; Solution Film</span>
+              <span class="pill-badge">2:00 min · 1080p</span>
+            </button>
+            <button type="button" class="video-mode-pill" id="pillDemo" role="tab" aria-selected="false" data-video="demo">
+              <span class="pill-dot" aria-hidden="true"></span>
+              <span class="pill-title">Live Prototype Demo</span>
+              <span class="pill-badge">0:41 min</span>
+            </button>
+          </div>
+
+          <!-- Cinema Theater Stage -->
+          <figure class="video-cinema-stage">
+            <div class="video-theater-frame mode-film" id="videoFrame">
+              <div class="video-theater-bar">
+                <div class="theater-bar-left">
+                  <span class="theater-status-dot" aria-hidden="true"></span>
+                  <span class="theater-status-label" id="videoStatusLabel">Official Product Film</span>
+                </div>
+                <div class="theater-bar-center" id="videoChapterBadge">0:00 · The Challenge</div>
+                <div class="theater-bar-right">
+                  <span class="theater-badge-hd">Full HD</span>
+                  <span class="theater-badge-dur" id="videoDurationLabel">2:00</span>
                 </div>
               </div>
-              <button type="button" class="video-sound-pill" id="videoSoundToggle" aria-label="Toggle video sound" aria-pressed="false">Tap for sound 🔈</button>
+
+              <div class="video-viewport">
+                <video id="gestalkVideo" class="gestalk-video-player" playsinline preload="auto" muted loop controls poster="gestalk-film-poster.jpg">
+                  <source src="gestalk-product-film.mp4" type="video/mp4" id="videoSource">
+                  Your browser does not support HTML5 video.
+                </video>
+                <div class="video-play-overlay" id="videoPlayOverlay" aria-hidden="true">
+                  <div class="video-play-circle">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                  </div>
+                </div>
+                <button type="button" class="video-sound-pill" id="videoSoundToggle" aria-label="Toggle video sound" aria-pressed="false">Tap for sound 🔈</button>
+              </div>
             </div>
-            <figcaption class="video-caption">Live demonstration · Gestalk smart glove translating gestures to voice</figcaption>
+            <figcaption class="video-caption" id="videoCaption">
+              Official 2-Minute Product Film · Problem context, AI wearable breakthrough, and real-world impact by Redfoxrobotics
+            </figcaption>
           </figure>
-          <div class="video-feature-list">
-            <div class="number">REAL-WORLD DEMONSTRATION</div>
-            <h3>See how intuitive everyday communication becomes.</h3>
-            <p>Gestalk bridges the communication gap by translating hand gestures into audible speech and on-screen text instantly, enabling natural two-way conversations.</p>
-            <div class="video-features">
-              <article class="video-feature-item">
-                <span class="video-feature-num" aria-hidden="true">01</span>
-                <div>
-                  <h3>Real-time gesture sensing</h3>
-                  <p>Flexible sensors and high-precision tracking capture subtle finger movements and hand orientations in milliseconds.</p>
-                </div>
-              </article>
-              <article class="video-feature-item">
-                <span class="video-feature-num" aria-hidden="true">02</span>
-                <div>
-                  <h3>Instant voice translation</h3>
-                  <p>Hand signs are converted into natural spoken voice and readable text across supported languages.</p>
-                </div>
-              </article>
-              <article class="video-feature-item">
-                <span class="video-feature-num" aria-hidden="true">03</span>
-                <div>
-                  <h3>Two-way seamless interaction</h3>
-                  <p>Spoken replies from friends and family are transcribed directly into text on the companion app.</p>
-                </div>
-              </article>
+
+          <!-- Interactive Story & Chapter Milestones -->
+          <div class="video-story-section" id="filmChapters">
+            <div class="video-story-heading">
+              <span class="number">FILM CHAPTERS &amp; CORE TAKEAWAYS</span>
+              <h3>Explore the 2-minute story breakdown</h3>
+              <p>Click any milestone below to jump directly to that chapter in the film.</p>
             </div>
-            <div class="video-actions">
-              <a class="button primary" href="#contact">Request a live demo ↗</a>
-              <a class="button secondary" href="#how">How it works ↓</a>
+            <div class="video-story-grid" role="region" aria-label="Film chapter milestones">
+              <button type="button" class="story-chapter-card active" data-seek="0">
+                <div class="chapter-card-top">
+                  <span class="chapter-num">01</span>
+                  <span class="chapter-time">0:00</span>
+                </div>
+                <span class="chapter-tag">THE PROBLEM</span>
+                <h4>Everyday Barriers</h4>
+                <p>Millions of deaf &amp; non-verbal individuals struggle daily to express needs, thoughts, and feelings.</p>
+                <span class="chapter-jump-hint">Jump to 0:00 →</span>
+              </button>
+
+              <button type="button" class="story-chapter-card" data-seek="28">
+                <div class="chapter-card-top">
+                  <span class="chapter-num">02</span>
+                  <span class="chapter-time">0:28</span>
+                </div>
+                <span class="chapter-tag">THE INNOVATION</span>
+                <h4>Gestalk AI Smart Glove</h4>
+                <p>Wearable finger sensors and wrist intelligence capture subtle hand motions with millisecond latency.</p>
+                <span class="chapter-jump-hint">Jump to 0:28 →</span>
+              </button>
+
+              <button type="button" class="story-chapter-card" data-seek="52">
+                <div class="chapter-card-top">
+                  <span class="chapter-num">03</span>
+                  <span class="chapter-time">0:52</span>
+                </div>
+                <span class="chapter-tag">THE SOLUTION</span>
+                <h4>Threefold Output</h4>
+                <p>Instant translation to natural spoken voice in 12 major regional languages, live subtitles, and visual cards.</p>
+                <span class="chapter-jump-hint">Jump to 0:52 →</span>
+              </button>
+
+              <button type="button" class="story-chapter-card" data-seek="86">
+                <div class="chapter-card-top">
+                  <span class="chapter-num">04</span>
+                  <span class="chapter-time">1:26</span>
+                </div>
+                <span class="chapter-tag">DAILY LIFE</span>
+                <h4>Effortless Daily Wear</h4>
+                <p>Ergonomic lightweight fit with all-day battery life, zero wrist fatigue, and seamless app connectivity.</p>
+                <span class="chapter-jump-hint">Jump to 1:26 →</span>
+              </button>
             </div>
+          </div>
+
+          <div class="video-showcase-actions">
+            <a class="button primary" href="#contact">Request a live demo ↗</a>
+            <a class="button secondary" href="#how">How Gestalk works ↓</a>
           </div>
         </div>
       </div>
@@ -417,7 +475,7 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script src="assets/js/site.js" integrity="sha384-bSEF/ICzV/cNhWvGna2RhT0gJzuaja6saCxcpsr2Cs6Q6hbAk7/BG99V0Du8TVZW" defer></script>
+  <script src="assets/js/site.js" integrity="sha384-7DXUPCg74mYxNgppDCLoqrpyQdzJOE2G+R/zyNrCuTBvkaG6n8jb/wC7LJ+VkIeV" defer></script>
 </body>
 </html>
 
