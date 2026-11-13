@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-02oBN59KOgOOfk5yCLn2aHMWHiW/xt1GTZVcIBRXplCToCSi/8mWVgaqv7egP3rw'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha384-QLX1p9nzV6NfV30TYfRJLKOZUHgTvcQamyzpW3vjghV6FyVqHl8ncCTC0/jVmYP9'; script-src-attr 'none'; style-src 'self' https://fonts.googleapis.com; style-src-attr 'none'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
     <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Redfoxrobotics presents Gestalk - smart communication glove turning hand gestures into voice and text for inclusive communication.">
@@ -47,8 +47,56 @@
 
   <!-- MAIN CONTENT -->
   <main id="top">
-    <!-- HERO SECTION -->
-    <section class="hero">
+    <!-- HERO OPENING VIDEO SHOWCASE (100% PERFECT 16:9 ACTUAL VIDEO RATIO) -->
+    <section class="hero-video-stage" id="openingVideo" aria-label="Gestalk Opening Video">
+      <div class="hero-video-container">
+        <video id="heroVideo" class="hero-video-element" playsinline preload="auto" loop poster="gestalk-film-poster.jpg">
+          <source src="gestalk-product-film.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <!-- Center: Play / Pause Button (Fades out during playback, ZERO text covering the video) -->
+      <div class="hero-video-center">
+        <button type="button" class="hero-play-pause-btn" id="heroPlayPauseBtn" aria-label="Play or pause video" title="Play / Pause">
+          <svg class="hero-icon-play" viewBox="0 0 24 24" width="38" height="38" fill="currentColor">
+            <polygon points="7 4 20 12 7 20 7 4"></polygon>
+          </svg>
+          <svg class="hero-icon-pause" viewBox="0 0 24 24" width="38" height="38" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16" rx="1.5"></rect>
+            <rect x="14" y="4" width="4" height="16" rx="1.5"></rect>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Top-Right Floating Controls (Sound & Fullscreen) -->
+      <div class="hero-video-top-controls">
+        <button type="button" class="hero-ctrl-btn" id="heroSoundToggle" aria-label="Toggle sound" title="Sound: Default (On)">
+          <svg class="hero-sound-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="hero-sound-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <button type="button" class="hero-ctrl-btn" id="heroFullscreenBtn" aria-label="Full screen" title="Full Screen">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Slim Bottom Video Progress Line (Clean & Unobtrusive) -->
+      <div class="hero-progress-line" id="heroProgressTrack" role="slider" aria-label="Video timeline" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="hero-progress-fill" id="heroProgressFill"></div>
+      </div>
+    </section>
+
+    <!-- HERO SECTION WITH EXISTING AI IMAGE & ORIGINAL CONTENT -->
+    <section class="hero" id="hero">
       <figure class="hero-scene">
         <img class="hero-image" src="gestalk-conversation-hero.png" alt="A person wearing the Gestalk smart glove and sharing a relaxed conversation with two friends" width="1672" height="941" fetchpriority="high" decoding="async">
       </figure>
@@ -106,7 +154,7 @@
               <li><span class="check" aria-hidden="true">✓</span><span><strong>Up to one-day battery life</strong>Battery life varies with usage and settings.</span></li>
             </ul>
             <div class="product-actions">
-              <a class="button primary" href="#demo">Watch Gestalk Video ▶</a>
+              <a class="button primary" href="#demo">Watch Gestalk Smart Glove ▶</a>
               <a class="button secondary" href="#how">Why Gestalk matters →</a>
             </div>
           </div>
@@ -114,89 +162,92 @@
       </div>
     </section>
 
-    <!-- GESTALK VIDEO & DEMONSTRATION SHOWCASE -->
+    <!-- GESTALK SMART GLOVE DEMO SHOWCASE (REEL ON LEFT, TEXT ON RIGHT) -->
     <section class="demo-showcase" id="demo">
       <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <p class="kicker">Gestalk Video</p>
-            <h2>Breaking barriers. Connecting people.</h2>
-          </div>
-          <p>See how the Gestalk AI smart glove bridges communication gaps, translating hand gestures into clear speech and text in real time.</p>
-        </div>
-
-        <div class="demo-showcase-content reveal">
-          <!-- Video Selection Switcher -->
-          <div class="video-switcher" role="tablist" aria-label="Choose demonstration video">
-            <button type="button" class="video-mode-pill active" id="pillFilm" role="tab" aria-selected="true" data-video="film">
-              <span class="pill-dot" aria-hidden="true"></span>
-              <span class="pill-title">Gestalk Video</span>
-              <span class="pill-badge">2:00 min · 1080p</span>
-            </button>
-            <button type="button" class="video-mode-pill" id="pillDemo" role="tab" aria-selected="false" data-video="demo">
-              <span class="pill-dot" aria-hidden="true"></span>
-              <span class="pill-title">Live Prototype Demo</span>
-              <span class="pill-badge">0:41 min</span>
-            </button>
-          </div>
-
-          <!-- Cinema Theater Stage -->
-          <figure class="video-cinema-stage">
-            <div class="video-theater-frame mode-film" id="videoFrame">
-              <div class="video-theater-bar">
-                <div class="theater-bar-left">
-                  <span class="theater-status-dot" aria-hidden="true"></span>
-                  <span class="theater-status-label" id="videoStatusLabel">Gestalk Video</span>
-                </div>
-                <div class="theater-bar-right">
-                  <span class="theater-badge-hd">Full HD</span>
-                  <span class="theater-badge-dur" id="videoDurationLabel">2:00</span>
-                </div>
-              </div>
-
-              <div class="video-viewport">
-                <video id="gestalkVideo" class="gestalk-video-player" playsinline preload="auto" muted loop controls poster="gestalk-film-poster.jpg">
-                  <source src="gestalk-product-film.mp4" type="video/mp4" id="videoSource">
-                  Your browser does not support HTML5 video.
-                </video>
-                <div class="video-play-overlay" id="videoPlayOverlay" aria-hidden="true">
-                  <div class="video-play-circle">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <div class="demo-reel-layout reveal">
+          <!-- LEFT COLUMN: REEL VIDEO -->
+          <div class="demo-reel-media">
+            <figure class="video-cinema-stage">
+              <div class="video-theater-frame mode-demo" id="videoFrame">
+                <div class="video-theater-bar">
+                  <div class="theater-bar-left">
+                    <span class="theater-status-dot" aria-hidden="true"></span>
+                    <span class="theater-status-label" id="videoStatusLabel">Gestalk Smart Glove</span>
+                  </div>
+                  <div class="theater-bar-right">
+                    <span class="theater-badge-hd">0:41 min</span>
                   </div>
                 </div>
-                <div class="video-overlay-actions">
-                  <button type="button" class="video-icon-btn" id="videoSoundToggle" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false">
-                    <svg class="icon-sound-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                      <line x1="23" y1="9" x2="17" y2="15"></line>
-                      <line x1="17" y1="9" x2="23" y2="15"></line>
-                    </svg>
-                    <svg class="icon-sound-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    </svg>
-                  </button>
-                  <button type="button" class="video-icon-btn" id="videoFullscreenToggle" aria-label="Enter fullscreen" title="Enter fullscreen" aria-pressed="false">
-                    <svg class="icon-fullscreen-enter" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                    </svg>
-                    <svg class="icon-fullscreen-exit" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M4 14h6m0 0v6m0-6-7 7m17-11h-6m0 0V4m0 6 7-7m-7 17v-6m0 0h6m-6 0 7 7M10 4v6m0 0H4m6 0L3 3"></path>
-                    </svg>
-                  </button>
+
+                <div class="video-viewport">
+                  <video id="gestalkVideo" class="gestalk-video-player" playsinline preload="auto" muted loop controls poster="gestalk-demo-poster.jpg">
+                    <source src="gestalk-video.mp4" type="video/mp4" id="videoSource">
+                    Your browser does not support HTML5 video.
+                  </video>
+                  <div class="video-play-overlay" id="videoPlayOverlay" aria-hidden="true">
+                    <div class="video-play-circle">
+                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                    </div>
+                  </div>
+                  <div class="video-overlay-actions">
+                    <button type="button" class="video-icon-btn" id="videoSoundToggle" aria-label="Unmute audio" title="Unmute audio" aria-pressed="false">
+                      <svg class="icon-sound-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                      </svg>
+                      <svg class="icon-sound-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="video-icon-btn" id="videoFullscreenToggle" aria-label="Enter fullscreen" title="Enter fullscreen" aria-pressed="false">
+                      <svg class="icon-fullscreen-enter" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                      </svg>
+                      <svg class="icon-fullscreen-exit" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 14h6m0 0v6m0-6-7 7m17-11h-6m0 0V4m0 6 7-7m-7 17v-6m0 0h6m-6 0 7 7M10 4v6m0 0H4m6 0L3 3"></path>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <figcaption class="video-caption" id="videoCaption">
-              Gestalk Video · Problem context, AI wearable breakthrough, and real-world impact by Redfoxrobotics
-            </figcaption>
-          </figure>
+              <figcaption class="video-caption" id="videoCaption">
+                Gestalk Smart Glove · Translating gestures to voice and text in real time
+              </figcaption>
+            </figure>
+          </div>
 
-          <div class="video-showcase-actions">
-            <a class="button primary" href="#contact">Request a live demo ↗</a>
-            <a class="button secondary" href="#how">How Gestalk works ↓</a>
+          <!-- RIGHT COLUMN: CORRESPONDING TEXT & ACTIONS -->
+          <div class="demo-reel-content">
+            <div class="section-heading-side">
+              <p class="kicker">Gestalk Smart Glove</p>
+              <h2>See the Gestalk Glove in Action</h2>
+              <p class="lead">Watch the Gestalk Smart Glove and companion smartphone app translate live hand signs into clear speech and text in real time.</p>
+            </div>
+            <ul class="features">
+              <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span><strong>Instant real-time translation</strong>Finger flex sensors and precision IMU convert hand movement into speech output instantly.</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span><strong>12 major Indian regional languages</strong>Audio output and text translation designed for everyday conversations across India.</span>
+              </li>
+              <li>
+                <span class="check" aria-hidden="true">✓</span>
+                <span><strong>Companion smartphone app</strong>Displays live readable text on the phone screen for effortless two-way communication.</span>
+              </li>
+            </ul>
+            <div class="video-showcase-actions">
+              <a class="button primary" href="#contact">Request a live demo ↗</a>
+              <a class="button secondary" href="#how">How Gestalk works ↓</a>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
       </div>
     </section>
 
@@ -440,7 +491,7 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script src="assets/js/site.js" integrity="sha384-02oBN59KOgOOfk5yCLn2aHMWHiW/xt1GTZVcIBRXplCToCSi/8mWVgaqv7egP3rw" defer></script>
+  <script src="assets/js/site.js" integrity="sha384-QLX1p9nzV6NfV30TYfRJLKOZUHgTvcQamyzpW3vjghV6FyVqHl8ncCTC0/jVmYP9" defer></script>
 </body>
 </html>
 
